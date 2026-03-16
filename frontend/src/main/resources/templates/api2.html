@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head><meta charset="UTF-8"><title>API 2</title></head>
+<body>
+<h1>Réponse de Py2 via Backend</h1>
+
+<div th:if="${result}">
+  <p><strong>Brut :</strong></p>
+  <pre th:text="${result}"></pre>
+
+  <p><strong>Message :</strong> <span th:text="${result['message']}"></span></p>
+</div>
+
+<div th:if="${error}">
+  <strong>Erreur :</strong>
+  <pre th:text="${error}"></pre>
+</div>
+</body>
+</html>
