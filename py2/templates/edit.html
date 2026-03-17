@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Item</title>
+
+    <style>
+        body { font-family: Arial; background-color: #fafafa; padding: 40px; }
+        .container {
+            width: 450px; margin: auto; background: white;
+            padding: 25px; border-radius: 8px; box-shadow: 0 0 10px #ccc;
+        }
+        h1 { text-align: center; color: #333; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input, textarea {
+            width: 100%; padding: 8px; margin-top: 6px;
+            border: 1px solid #ccc; border-radius: 4px;
+        }
+        button {
+            margin-top: 20px; width: 100%; padding: 10px;
+            color: white; background-color: #ffa500;
+            border: none; border-radius: 5px; font-size: 15px;
+        }
+        button:hover { background-color: #cc8400; }
+        a { display: block; margin-top: 15px; text-align: center; color: #0066cc; }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Modifier l’item #{{ item.id }}</h1>
+
+    <form method="post" action="/api3{{ url_for('web_edit_item_submit', item_id=item.id) }}">
+        <label>Nom :</label>
+        <input type="text" name="name" value="{{ item.name }}" required>
+
+        <label>Description :</label>
+        <textarea name="description">{{ item.description }}</textarea>
+
+        <button type="submit">Mettre à jour</button>
+    </form>
+
+    <a href="{{ '/api3' + url_for('web_list_items') }}" class="back-link">← Retour</a>
+
+</div>
+</body>
+</html>
