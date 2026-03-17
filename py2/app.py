@@ -1,16 +1,87 @@
-from flask import Flask, jsonify
+import os
+import pymysql
+
+from flask import Flask, jsonify, request
+from sqlalchemy import select
+from sqlalchemy.exc import SQLAlchemyError
+from db import SessionLocal
+from models import Item
 
 app = Flask(__name__)
 
-@app.get("/healthz")
-def healthz():
-    return {"status": "ok"}, 200
-
-# ✅ alias de santé générique
+# --- HEALTHCHECK ---
 @app.get("/health")
 def health():
-    return {"status": "ok"}, 200
+    try:
+        with SessionLocal() as s:
+            s.execute(select(1))
+        return {"status": "ok", "db": "up"}, 200
+    except SQLAlchemyError as e:
+        return {"status": "degraded", "db": "down", "error": str(e)}, 200
 
-@app.get("/api/hello")  # <-- utilisé par le backend
-def hello():
-    return jsonify(message="Hello from py2"), 200
+
+# --- LIST ITEMS ---
+@app.get("/items")
+def list_items():
+    with SessionLocal() as s:
+        rows = s.execute(select(Item)).scalars().all()
+        return jsonify([
+            {"id": x.id, "name": x.name, "description": x.description}
+            for x in rows
+        ]), 200
+
+
+# --- ADD ITEM ---
+@app.post("/items")
+def add_item():
+    data = request.get_json(force=True)
+    # Verificación por si el JSON no es válido o faltan campos
+    if not data or "name" not in data:
+        return {"error": "Missing name"}, 400
+
+    with SessionLocal() as s:
+        it = Item(
+            name=data["name"],
+            description=data.get("description")
+        )
+        s.add(it)
+        s.commit()
+        s.refresh(it)
+        return {"id": it.id}, 201
+
+
+# --- UPDATE ITEM ---
+@app.patch("/items/<int:item_id>")
+def update_item(item_id: int):
+    data = request.get_json(force=True)
+    with SessionLocal() as s:
+        it = s.get(Item, item_id)
+        if not it:
+            return {"error": "not found"}, 404
+
+        it.name = data.get("name", it.name)
+        it.description = data.get("description", it.description)
+        s.commit()
+
+        return {"status": "updated"}, 200
+
+
+# --- DELETE ITEM ---
+@app.delete("/items/<int:item_id>")
+def delete_item(item_id: int):
+    with SessionLocal() as s:
+        it = s.get(Item, item_id)
+        if not it:
+            return {"error": "not found"}, 404
+
+        s.delete(it)
+        s.commit()
+
+        return {"status": "deleted"}, 200
+
+
+# --- RUN
+# Dejado para ser ejecutado directamente por  comando pytho app.py si fuera necesario
+# Con guicorn no es necesario---
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
