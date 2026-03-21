@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content" class="home-container" style="text-align:center; margin-top:40px;">
+
+    <!-- Título de la página que se verá en el header -->
+    <span th:with="pageName='Inicial'"></span>
+
+    <h2 style="color:#003366;">Bienvenido a Sistemas Distribuidos de la EPI de la UBU</h2>
+
+    <p style="font-size:18px; color:#444;">
+        Escoja una opción para continuar :
+    </p>
+
+    <div style="margin-top:30px;">
+        <a class="btn btn-primary" style="font-size:18px; padding:12px 20px;" th:href="@{/items}">
+            Ver la lista de items en el almacén
+        </a>
+    </div>
+
+    <div style="margin-top:20px;">
+        <a class="btn btn-secondary" style="font-size:18px; padding:12px 20px;" th:href="@{/login}">
+            Conexión como administrador
+        </a>
+    </div>
+</div>
+</body>
+</html>

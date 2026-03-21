@@ -1,3 +1,4 @@
+# docker-compose
 services:
   db:
     image: mysql:8.0.36
@@ -17,15 +18,16 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
-  sonarqube:
-    image: sonarqube:10.6-community
-    environment:
-      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
-    ports:
-      - "9000:9000"
-    volumes:
-      - sonar_data:/opt/sonarqube/data
-      - sonar_extensions:/opt/sonarqube/extensions
+# -- SONAR (desactivado durante test provisionales para disminuir carga --
+#  sonarqube:
+#   image: sonarqube:10.6-community
+#    environment:
+#      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+#    ports:
+#      - "9000:9000"
+#    volumes:
+#      - sonar_data:/opt/sonarqube/data
+#      - sonar_extensions:/opt/sonarqube/extensions
 
   backend:
     build:

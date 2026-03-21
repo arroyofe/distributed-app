@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content">
+    <!-- Título de la página que se verá en el header -->
+    <span th:with="pageName='Items-edit'"></span>
+
+    <h2 th:text="'Modificar el item #' + ${item.id}"></h2>
+
+    <form th:action="@{'/admin/items/edit/' + ${item.id}}"
+          method="post" class="form-card">
+
+        <label>Nombre :</label>
+        <input type="text" name="name" class="input"
+               th:value="${item.name}" required>
+
+        <label>Descripción :</label>
+        <textarea name="description" class="input"
+                  th:text="${item.description}"></textarea>
+
+        <button type="submit" class="btn btn-warning" style="margin-top:15px;">
+           Actualizar
+        </button>
+    </form>
+
+    <div style="margin-top:20px;">
+        <a th:href="@{/items}" class="btn btn-secondary">← Volver</a>
+    </div>
+
+</div>
+</body>
+</html>

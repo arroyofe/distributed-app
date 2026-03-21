@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content">
+    <!-- Título de la página que se verá en el header -->
+    <span th:with="pageName='Items-new'"></span>
+
+    <h2>Crear un item nuevo</h2>
+
+    <form th:action="@{/admin/items/new}" method="post" class="form-card">
+
+        <label>Nombre :</label>
+        <input type="text" name="name" class="input" required>
+
+        <label>Descripción :</label>
+        <textarea name="description" class="input"></textarea>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:15px;">
+            Crear
+        </button>
+    </form>
+
+    <div style="margin-top:20px;">
+        <a th:href="@{/items}" class="btn btn-secondary">← Volver</a>
+    </div>
+
+</div>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Nouveau Item</title>
+  <title> Item nuevo</title>
 
   <style>
     body { font-family: Arial; background-color: #fafafa; padding: 40px; }
@@ -30,20 +30,20 @@
 <body>
 <div class="container">
 
-  <h1>Créer un item</h1>
+  <h1>Crear un item</h1>
 
   <form method="post" action="/api3{{ url_for('web_new_item_submit') }}">
 
-    <label>Nom :</label>
+    <label>Nombre :</label>
     <input type="text" name="name" required>
 
-    <label>Description :</label>
+    <label>Descripción :</label>
     <textarea name="description"></textarea>
 
     <button type="submit">Créer</button>
   </form>
 
-  <a href="/api3{{ url_for('web_list_items') }}">← Retour à la liste</a>
+  <a href="/api3{{ url_for('web_list_items') }}">← Volver a la lista</a>
 
 </div>
 </body>

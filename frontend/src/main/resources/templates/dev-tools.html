@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<body>
+
+<div th:fragment="content">
+
+    <h1>Herramientas de desarrollo</h1>
+    <!-- Título de la página que se verá en el header -->
+    <span th:with="pageName='Dev-tools'"></span>
+
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <h4>Base de datos MySQL</h4>
+
+            <p>
+                <strong>Estado :</strong>
+                <span th:text="${dbUp} ? '🟢 En ligne' : '🔴 Hors ligne'"></span>
+            </p>
+
+            <p>
+                <strong>Versión :</strong>
+                <span th:text="${dbVersion}"></span>
+            </p>
+
+        </div>
+    </div>
+
+    <a th:href="@{/dev/dashboard}" >Volver al Dashboard</a>
+
+</div>
+
+</body>
+</html>
+``

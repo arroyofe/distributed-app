@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste Items</title>
+    <title>Lista de Items</title>
 
     <style>
         body { font-family: Arial, sans-serif; background-color: #fafafa; margin: 40px; }
@@ -37,10 +37,10 @@
 <body>
 <div class="container">
 
-    <h1>Liste des Items</h1>
+    <h1>Lista de los Items</h1>
 
     <div class="actions-top">
-        <a href="/api3{{ url_for('web_new_item_form') }}" class="btn">+ Ajouter un item</a>
+        <a href="/api3{{ url_for('web_new_item_form') }}" class="btn">+ Añadir un item</a>
     </div>
 
     <table>
@@ -59,13 +59,13 @@
             <td>
                 <a href="/api3{{ url_for('web_edit_item_form', item_id=it.id) }}"
                    class="btn btn-small btn-edit">
-                    Modifier
+                    Modificar
                 </a>
 
                 <form method="post" action="/api3{{ url_for('web_delete_item', item_id=it.id) }}">
                     <button type="submit" class="btn btn-small btn-delete"
-                            onclick="return confirm('Supprimer cet item ?');">
-                        Supprimer
+                            onclick="return confirm('Suprimir este item ?');">
+                        Suprimir
                     </button>
                 </form>
             </td>

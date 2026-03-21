@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Modifier Item</title>
+    <title>Modificar Item</title>
 
     <style>
         body { font-family: Arial; background-color: #fafafa; padding: 40px; }
@@ -29,19 +29,19 @@
 <body>
 <div class="container">
 
-    <h1>Modifier l’item #{{ item.id }}</h1>
+    <h1>Modificar el item #{{ item.id }}</h1>
 
     <form method="post" action="/api3{{ url_for('web_edit_item_submit', item_id=item.id) }}">
-        <label>Nom :</label>
+        <label>Nombre :</label>
         <input type="text" name="name" value="{{ item.name }}" required>
 
-        <label>Description :</label>
+        <label>Descripción :</label>
         <textarea name="description">{{ item.description }}</textarea>
 
-        <button type="submit">Mettre à jour</button>
+        <button type="submit">Actualizar</button>
     </form>
 
-    <a href="{{ '/api3' + url_for('web_list_items') }}" class="back-link">← Retour</a>
+    <a href="{{ '/api3' + url_for('web_list_items') }}" class="back-link">← Volver</a>
 
 </div>
 </body>

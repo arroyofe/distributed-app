@@ -2,17 +2,17 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /build
 
-# 1) Copier POM parent + modules
+# 1) Copiar los POM padre y los hijos
 COPY pom.xml ./pom.xml
 COPY backend/pom.xml backend/pom.xml
 COPY frontend/pom.xml frontend/pom.xml
 
-# 2) Copier TOUTES les sources avant de lancer Maven (réacteur satisfait)
+# 2) Copiar TODAS las fuentes antes de lanzar Maven
 COPY backend ./backend
 COPY frontend ./frontend
 
-# 3) Construire uniquement le module backend (+ ses deps via -am)
-#    (on évite go-offline pour contourner le parse en contexte partiel)
+# 3) Construir unicamente el módulo backend (+ y sus dependencias  via -am)
+#    (con esto se evita el go-offline y permite evitar el parse en contexto parcial)
 #RUN echo "=== Listing /build ===" && ls -la && echo "=== Recursive ===" && ls -R
 RUN mvn -q -DskipTests -pl backend -am package
 
