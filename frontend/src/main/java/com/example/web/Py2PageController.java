@@ -19,7 +19,10 @@ public class Py2PageController {
     @GetMapping("/api2") // lien du menu
     public String api2(Model model) {
         try {
-            Map resp = rest.getForObject(backendBaseUrl + "/api/py2/hello", Map.class);
+            Map<String, Object> resp = rest.getForObject(
+                    backendBaseUrl + "/api/py2/hello",
+                    Map.class
+            );
             model.addAttribute("result", resp);
         } catch (Exception ex) {
             model.addAttribute("error", ex.getMessage());

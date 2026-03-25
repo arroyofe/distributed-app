@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head><meta charset="UTF-8"><title>API 2</title></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <body>
-<h1>Respuesta de Py2 via Backend</h1>
+<div layout:fragment="content">
+
+  <span th:with="pageName='Apy2'"></span>
+
+  <h1>Respuesta de Py2 via Backend</h1>
 
 <div th:if="${result}">
+
   <p><strong>Brut :</strong></p>
   <pre th:text="${result}"></pre>
 
@@ -14,6 +21,7 @@
 <div th:if="${error}">
   <strong>Erreur :</strong>
   <pre th:text="${error}"></pre>
+</div>
 </div>
 </body>
 </html>

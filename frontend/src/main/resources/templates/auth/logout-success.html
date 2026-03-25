@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<div th:replace="~{this :: #pageTitleSetter}"></div>
+<span id="pageTitleSetter" th:with="pageName='Logou conseguido'" style="display:none;"></span>
+<div layout:fragment="content" style="text-align:center; margin-top:50px;">
+
+    <h2>Se ha desconectado correctamente</h2>
+    <p>Gracias por haber usado la aplicación.</p>
+    <a href="/" style="color:#003366; font-weight:bold;">Volver al inicio</a>
+</div>
+</body>
+</html>

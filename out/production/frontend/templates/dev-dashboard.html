@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
 <body>
+<div layout:fragment="content">
 
-<div th:fragment="content">
-    <!-- Título de la página que se verá en el header -->
-    <span th:with="pageName='Dev-dashboard'"></span>
+    <span th:with="pageName='Dev Dashboard'"></span>
 
-    <h1>Espacio Desarrolladores</h1>
+    <h2>Espacio Desarrolladores</h2>
 
     <p class="mt-3">
         Bienvenido al espacio reservado a desarrolladores y administradores.
-        Aqí, podrán añadir módulos avanzados y herramientas de debug,
-        tests internos, o cualquier otra funcionalidad necesaria.
+        Aquí podrás acceder a herramientas internas, diagnósticos y módulos avanzados.
     </p>
 
     <div class="card mt-4">
         <div class="card-body">
-            <h4>Herramientas avanzada. En desarrollo</h4>
+            <h4>Herramientas disponibles</h4>
             <ul>
-                <li>Análisis API py2</li>
-                <li>Logs backend</li>
-                <li>Tests de conexión a la DB</li>
-                <li>Endpoints REST (internos)</li>
+                <li>Estado de la base de datos</li>
+                <li>Logs del backend</li>
+                <li>Tests de conexión</li>
+                <li>Endpoints REST internos</li>
             </ul>
         </div>
     </div>
 
     <div class="mt-4">
-    <a href="/dev/tools" class="btn btn-primary">Abrir las herramientas</a>
+        <a th:href="@{/dev/tools}" class="btn btn-primary">Abrir herramientas</a>
     </div>
 
 </div>
-
 </body>
 </html>

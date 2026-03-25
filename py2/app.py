@@ -1,10 +1,8 @@
-import os
-import pymysql
-
 from flask import Flask, jsonify, request
 from flask import render_template, redirect, url_for
 from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
+
 from db import SessionLocal
 from models import Item
 

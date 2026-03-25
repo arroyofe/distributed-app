@@ -1,46 +1,56 @@
 package com.example.web.controllers;
 
+import com.example.web.dto.UserDto;
 import com.example.web.models.User;
+import com.example.web.repositories.UserRepository;
 import com.example.web.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin/users")
+@RequestMapping("/users")
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
-    private final UserService service;
+    private final UserService userService;
 
-    public UserController(UserService service) {
-        this.service = service;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
     public String list(Model model) {
-        model.addAttribute("users", service.findAll());
-        model.addAttribute("pageName", "Gestión usuarios");
-        return "admin-users";
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("pageName", "Gestión de usuarios");
+        return "users";
     }
 
     @GetMapping("/new")
     public String newUser(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("pageName", "Nuevo usuario");
-        return "admin-user-new";
+        model.addAttribute("user", new UserDto());
+        model.addAttribute("pageName", "Créer un utilisateur");
+        return "user-new";
     }
 
-    @PostMapping("/save")
-    public String save(@ModelAttribute User user) {
-        service.create(user);
-        return "redirect:/admin/users";
+    @PostMapping("/new")
+    public String create(@Valid @ModelAttribute ("user") UserDto dto, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user-new";
+        }
+
+        userService.createUser(dto);
+        return "redirect:/users";
+
     }
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        service.delete(id);
-        return "redirect:/admin/users";
+        userService.deleteById(id);
+        return "redirect:/users";
     }
 }

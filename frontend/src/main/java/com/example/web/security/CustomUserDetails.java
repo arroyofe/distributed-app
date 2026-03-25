@@ -2,6 +2,8 @@ package com.example.web.security;
 
 
 import com.example.web.models.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Esta clase es un adaptador de seguridad para que springbook gestionne los usuarios
+ */
+@Getter
+@Setter
 public class CustomUserDetails implements UserDetails {
 
     private final User user;
@@ -52,7 +59,4 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
 
-    public User getUser() {
-        return user;
-    }
 }

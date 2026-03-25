@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30d69f15-6cfd-492f-81ff-12ee352568bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/WebErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ItemDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/auth/logout-success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/db-forest-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/diff-generator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpb-settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/Py2PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/Py2PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/DevController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/DevController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/ItemDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/DbHealthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/DbHealthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/admin-user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/admin-users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ops/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/ops/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/backend/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/error/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/backend/com/example/app/error/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/web/DemoItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/backend/com/example/app/web/DemoItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/web/Py2ProxyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/backend/com/example/app/web/Py2ProxyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/web/dto/DemoItemCreateUpdateDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/web/dto/DemoItemDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/backend/com/example/app/web/mapper/DemoItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/backend/com/example/app/web/mapper/DemoItemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/Py2PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/Py2PageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/DevController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/DevController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/ItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/models/ItemDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/CustomUserDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/CustomUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/DbHealthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/DbHealthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/com/example/web/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/admin-user-new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/admin-users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/error/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/item-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/item-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/py1/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py1/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/py1/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py2/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/app.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="3BOVyEZSZYQp0u8bu1xvXj6jJDq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GenerateAdminPassword.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.GenerateAdminPassword">
+    <configuration name="GenerateAdminPassword" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.web.GenerateAdminPassword" />
+      <module name="frontend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.app.AppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrontendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="frontend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.web.FrontendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GenerateAdminPassword" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30d69f15-6cfd-492f-81ff-12ee352568bd" name="Changes" comment="" />
+      <created>1774360358319</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1774360358319</updated>
+      <workItem from="1774360359799" duration="19029000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

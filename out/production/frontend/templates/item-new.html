@@ -12,6 +12,10 @@
     <h2>Crear un item nuevo</h2>
 
     <form th:action="@{/admin/items/new}" method="post" class="form-card">
+        <!-- El input escondido permite la gestión de la seguridad -->
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}"/>
 
         <label>Nombre :</label>
         <input type="text" name="name" class="input" required>

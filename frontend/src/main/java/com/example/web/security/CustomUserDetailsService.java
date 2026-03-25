@@ -6,7 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
+/**
+ * Esta clase es un servidio de seguridad que funciona con CustomUserDetails
+ * para la seguridad de sprinbook
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

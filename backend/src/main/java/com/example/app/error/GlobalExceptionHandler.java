@@ -27,6 +27,14 @@ public class GlobalExceptionHandler {
         return error(500, "Internal Error", ex.getMessage(), req.getRequestURI());
     }
 
+    @ExceptionHandler(org.springframework.web.bind.MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(org.springframework.web.bind.MethodArgumentNotValidException ex, HttpServletRequest req) {
+        String details = ex.getBindingResult().getFieldErrors().stream()
+                .map(e -> e.getField() + ": " + e.getDefaultMessage())
+                .collect(java.util.stream.Collectors.joining(", "));
+
+        return error(400, "Validation Failed", details, req.getRequestURI());
+    }
 
     private ResponseEntity<Map<String, Object>> error(int status, String error, String message, String path) {
         Map<String, Object> body = new java.util.LinkedHashMap<>();

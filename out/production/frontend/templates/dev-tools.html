@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
 <body>
+<div layout:fragment="content">
 
-<div th:fragment="content">
+    <span th:with="pageName='Dev Tools'"></span>
 
-    <h1>Herramientas de desarrollo</h1>
-    <!-- Título de la página que se verá en el header -->
-    <span th:with="pageName='Dev-tools'"></span>
+    <h2>Herramientas de desarrollo</h2>
 
     <div class="card mt-4">
         <div class="card-body">
-
             <h4>Base de datos MySQL</h4>
 
             <p>
                 <strong>Estado :</strong>
-                <span th:text="${dbUp} ? '🟢 En ligne' : '🔴 Hors ligne'"></span>
+                <span th:text="${dbUp} ? '🟢 En línea' : '🔴 Fuera de línea'"></span>
             </p>
 
             <p>
                 <strong>Versión :</strong>
                 <span th:text="${dbVersion}"></span>
             </p>
-
         </div>
     </div>
 
-    <a th:href="@{/dev/dashboard}" >Volver al Dashboard</a>
+    <div class="mt-4">
+        <a th:href="@{/dev/dashboard}" class="btn btn-secondary">← Volver al Dashboard</a>
+    </div>
 
 </div>
-
 </body>
 </html>
-``

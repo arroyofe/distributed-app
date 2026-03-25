@@ -2,64 +2,64 @@ package com.example.web.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfig{
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                // .csrf(csrf -> csrf.disable())  Provisional sin encriptación
+            .csrf(csrf -> csrf.disable())  //Provisional sin encriptación usado en los tests
+
+            .authorizeHttpRequests(auth -> auth
 
 
-                .authorizeHttpRequests(auth -> auth
-                        // Ressources statiques
-                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/css/**", "/images/**", "/style.css").permitAll()
+                // Lectura unicamente → público: accesible a todos los usuarios; sin contraseña
+                .requestMatchers(HttpMethod.GET, "/items", "/items/*").permitAll()
 
-                        // Pages publiques
-                        .requestMatchers("/", "/home", "/index").permitAll()
+                // CRUD → Accesible al ADMIN únicamente (login y contraseña admin)
+                .requestMatchers("/items/create", "/items/edit/**", "/items/delete/**").hasRole("ADMIN")
 
-                        // Items accessibles à tous les utilisateurs connectés
-                        .requestMatchers("/items", "/items/**").hasAnyRole("ADMIN", "DEV", "USER")
+                // Páginas de acceso público
+                .requestMatchers("/", "/home", "/index", "/login", "/error/**").permitAll()
+                .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**").permitAll()
 
-                        // Login / Logout
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/logout").permitAll()
+                // Zonas reservadas a admin
+                .requestMatchers("/users/**").hasRole("ADMIN")
 
-                        // Zones protégées
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/dev/**").hasAnyRole("DEV", "ADMIN")
+                // Zona reservada a los desarrolladores (dev) y al admin
+                .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
 
-                        // Tout le reste nécessite authentification
-                        .anyRequest().authenticated()
+                // Cualquier otro caso → neceista autentificación con contraseña
+                .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/items", true)
+                        .defaultSuccessUrl("/index", true)
                         .permitAll()
                 )
 
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/logout-success")
                         .permitAll()
                 );
+
         // System.out.println(">>> Using MY SecurityFilterChain <<<"); PROVISIONAL PARA TESTS
         return http.build();
     }

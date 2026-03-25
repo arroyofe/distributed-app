@@ -2,7 +2,7 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /build
 
-# 1) Copiar los POM padre y los hijos
+# 1) Copiar los POM padre y los hijos para asegurar el comportamiento del flujo
 COPY pom.xml ./pom.xml
 COPY backend/pom.xml backend/pom.xml
 COPY frontend/pom.xml frontend/pom.xml

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz"
+      xmlns:sec="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/style.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
   <title th:text="${pageTitle} ?: 'UBU - EPI - Sistemas Distribuidos'"></title>
 </head>
 
@@ -20,10 +23,31 @@
   <div class="header-center">
     <h1 class="site-title">Práctica 2 de Sistemas Distribuidos EPI - UBU</h1>
   </div>
-  <!-- Nombre de la página a la derecha -->
+  <!-- Nombre de la página a la derecha  y del usuario si está conectado-->
   <div class="header-right">
-    <span th:text="${pageName} ?: ''"></span>
+    <!-- 1. Página actual (se ve siempre) -->
+    <div style="margin-bottom: 5px;">
+      <span th:text="${pageName} ?: ''" style="font-weight: bold;"></span>
+    </div>
+
+    <!-- 2. Bloque usuario (Se ve solamente si hay alguien conectado) -->
+    <div sec:authorize="isAuthenticated()" style="font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 5px;">
+      <span>👤 <strong sec:authentication="name">Utilisateur</strong></span>
+      <br>
+      <!-- Limpieza del header para evita los [ ] -->
+      <small>Rôle : <span th:text="${#strings.replace(#authentication.authorities[0], 'ROLE_', '')}"></span></small>
+      <br>
+      <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit" style="background:none; border:none; color:#d9534f; cursor:pointer; text-decoration:underline; padding:0;">Déconnexion</button>
+      </form>
+    </div>
+
+    <!-- 3. Enlace de conexión si no se ha conectado nadie -->
+    <div sec:authorize="isAnonymous()">
+      <a th:href="@{/login}" style="font-size: 0.9em;">Se connecter</a>
+    </div>
   </div>
+
 
 </header>
 
@@ -45,7 +69,7 @@
     <span th:text="${#dates.format(#dates.createNow(),'dd/MM/yyyy')}"></span>
   </div>
 
-  <div class="footer-right">ls
+  <div class="footer-right">
     <a th:href="@{/}">Volver al inicio</a>
   </div>
 

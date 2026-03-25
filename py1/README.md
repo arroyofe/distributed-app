@@ -1,8 +1,8 @@
-# py1 (Flask + Postgres)
+# py1 (Flask + mySQL)
 
-## Run local (sans Docker)
-1. Copier `.env.example` en `.env` et ajuster si besoin.
-2. Exporter les variables (ou `pip install python-dotenv` et charger auto).
-3. Installer deps:
+## Run local (sin Docker)
+1. Copiar `.env.example` en `.env` et ajustar si fuera necesario.
+2. Exportar las variables (o `pip install python-dotenv` et cargar auto).
+3. Instalarr deps:
    ```bash
    pip install -r requirements.txt

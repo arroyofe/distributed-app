@@ -20,6 +20,11 @@ spring:
 
 server:
   port: ${SERVER_PORT:8081}
+  forward-headers-strategy: native
+  error: # evita el uso de BasicErrorController para poder usar WebErrorController
+    whitelabel:
+      enabled: false
+
 
 app:
   backendBaseUrl: ${BACKEND_BASE_URL:http://localhost:8080}

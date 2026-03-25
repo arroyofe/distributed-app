@@ -25,7 +25,7 @@ public class DbHealthService {
         try {
             return jdbc.queryForObject("SELECT VERSION()", String.class);
         } catch (Exception e) {
-            return "Indisponible";
+            return "No disponible";
         }
     }
 }

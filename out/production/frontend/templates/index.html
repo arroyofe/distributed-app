@@ -1,16 +1,65 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><title>Inicial</title></head>
-<body>
-<h1>Frontend</h1>
-<nav>
-    /Home</a> |
-    /login</a> |
-    /api2API Python 2</a>
-</nav>
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns:sec="http://www.w3.org/1999/xhtml">
 
-<section>
-    <p>Pagina inicial simple.</p>
-</section>
+<body>
+<div layout:fragment="content" class="index-container" style="text-align:center; margin-top:40px;">
+
+    <!-- Título de la página que se verá en el header -->
+    <span th:with="pageName='Indice'"></span>
+
+    <h2 style="color:#003366;">Indice</h2>
+
+    <p style="font-size:18px; color:#444;">
+        Escoja una opción para continuar :
+    </p>
+
+    <!-- SECCION: Acceso general -->
+    <div style="margin-top:30px;">
+        <a class="btn btn-primary"
+           style="font-size:18px; padding:12px 20px;"
+           th:href="@{/items}">
+            📦 Ver la lista de items en el almacén
+        </a>
+    </div>
+
+    <div style="margin-top:20px;">
+        <a class="btn btn-secondary"
+           style="font-size:18px; padding:12px 20px;"
+           th:href="@{/login}">
+            🔑 Conexión como administrador
+        </a>
+    </div>
+
+    <div style="margin-top:30px;">
+        <a class="btn btn-secondary"
+           style="font-size:18px; padding:12px 20px;"
+           th:href="@{//api2API Python 2}">
+            📦 Ver la lista de valores de pokemon
+        </a>
+    </div>
+
+
+    <!-- SECTION: Acceso desarrolladores -->
+    <div sec:authorize="hasAnyRole('ADMIN','DEV')" style="margin-top:30px;">
+        <a th:href="@{/dev/dashboard}"
+           class="btn btn-outline-secondary"
+           style="font-size:18px; padding:12px 20px;">
+            🛠️ Espace développeur
+        </a>
+    </div>
+
+    <!-- SECTION: Acceso administradores -->
+    <div sec:authorize="hasRole('ADMIN')" style="margin-top:20px;">
+        <a th:href="@{/users}"
+           class="btn btn-outline-danger"
+           style="font-size:18px; padding:12px 20px;">
+            🔐 Gestion des utilisateurs
+        </a>
+    </div>
+
+</div>
 </body>
 </html>

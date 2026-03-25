@@ -1,14 +1,16 @@
 package com.example.web.controllers;
 
 
-import com.example.web.models.ItemDto;
+import com.example.web.dto.ItemDto;
 import com.example.web.services.ItemService;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/items")
 public class ItemController {
 
     private final ItemService service;
@@ -34,7 +36,7 @@ public class ItemController {
 
     @PostMapping("/admin/items/new")
     @PreAuthorize("hasRole('ADMIN')")
-    public String create(@ModelAttribute ItemDto dto) {
+    public String create(@Valid @ModelAttribute("item") ItemDto dto) { //@Valid valida los formularios
         service.create(dto);
         return "redirect:/items";
     }

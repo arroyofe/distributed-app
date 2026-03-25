@@ -1,8 +1,8 @@
 package com.example.app.web.mapper;
 
 import com.example.app.domain.DemoItem;
-import com.example.app.web.dto.DemoItemDto;
-import com.example.app.web.dto.DemoItemCreateUpdateDto;
+import com.example.app.dto.DemoItemDto;
+import com.example.app.dto.DemoItemCreateUpdateDto;
 
 public class DemoItemMapper {
     public static DemoItemDto toDto(DemoItem e) {

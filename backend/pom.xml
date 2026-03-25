@@ -19,10 +19,17 @@
     </properties>
 
     <dependencies>
+        <!-- WebFlux permite usar WebClient + Reactor (Mono/Flux) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -38,18 +45,20 @@
             <version>${project.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-
+        <!-- Flyway funciona como una herramienta de control de versiones y migración de bases de datos.
+        Su función principal es automatizar los cambios en el esquema de la base de datos
+        (tablas, columnas, restricciones) para que evolucionen a la par que el código de la aplicación,
+        manteniendo sincronizados los entornos de desarrollo, pruebas y producción. -->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>9.22.3</version> <!-- version totalement stable -->
+            <version>9.22.3</version>
         </dependency>
 
         <dependency>
@@ -67,28 +76,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- Pour plus tard: appels Flask + résilience -->
-        <!--
-        <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>io.github.resilience4j</groupId>
-          <artifactId>resilience4j-spring-boot3</artifactId>
-          <version>2.2.0</version>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!-- WebFlux permite usar WebClient + Reactor (Mono/Flux) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
     </dependencies>

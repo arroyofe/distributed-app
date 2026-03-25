@@ -2,7 +2,7 @@ package com.example.app.web;
 
 import com.example.app.domain.DemoItem;
 import com.example.app.repo.DemoItemRepository;
-import com.example.app.web.dto.DemoItemCreateUpdateDto;
+import com.example.app.dto.DemoItemCreateUpdateDto;
 import com.example.app.web.mapper.DemoItemMapper;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -40,7 +40,7 @@ public class DemoItemController {
 
     @PostMapping
     public Object create(@Valid @RequestBody DemoItemCreateUpdateDto dto) {
-        // (Optionnel) vérifier unicité du name
+        // (Optional) sirve para verificar la unicidad del nombre
         if (repo.existsByNameIgnoreCase(dto.name())) {
             return ResponseEntity.badRequest().body(
                     java.util.Map.of("status", 400, "error", "Bad Request", "message", "Nom déjà utilisé", "path", "/api/items")

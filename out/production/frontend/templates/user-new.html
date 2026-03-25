@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content">
+
+    <span th:with="pageName='Nuevo usuario'"></span>
+
+    <h2>Crear un nuevo usuario</h2>
+
+    <form th:action="@{/users/new}" method="post" class="form-card">
+
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}"/>
+
+        <label>Nombre de usuario :</label>
+        <input type="text" name="username" class="input" required>
+
+        <label>Contraseña :</label>
+        <input type="password" name="passwordHash" class="input" required>
+
+        <label>Rol :</label>
+        <select name="role" class="input">
+            <option value="ROLE_ADMIN">ADMIN</option>
+            <option value="ROLE_USER">USER</option>
+            <option value="ROLE_DEV">DEV</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary" style="margin-top:15px;">
+            Crear
+        </button>
+    </form>
+
+    <div style="margin-top:20px;">
+        <a th:href="@{/users}" class="btn btn-secondary">← Volver</a>
+    </div>
+
+</div>
+</body>
+</html>

@@ -5,13 +5,17 @@
       layout:decorate="~{layout}">
 
 <body>
+<div th:replace="~{this :: #pageTitleSetter}"></div>
+<span id="pageTitleSetter" th:with="pageName='NOM_DE_LA_PAGE'" style="display:none;"></span>
 <div layout:fragment="content">
-    <!-- Título de la página que se verá en el header -->
-    <span th:with="pageName='Items-new'"></span>
 
     <h2>Crear un item nuevo</h2>
 
     <form th:action="@{/admin/items/new}" method="post" class="form-card">
+        <!-- El input escondido permite la gestión de la seguridad -->
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}"/>
 
         <label>Nombre :</label>
         <input type="text" name="name" class="input" required>

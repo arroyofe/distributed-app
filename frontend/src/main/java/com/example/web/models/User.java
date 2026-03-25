@@ -14,6 +14,7 @@ public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true) // Garantiza la unicidad del username al ser la clave id
     private String username;
 
     @Column(name = "password_hash")

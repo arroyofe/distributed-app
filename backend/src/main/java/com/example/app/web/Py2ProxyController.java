@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class Py2ProxyController {
     @GetMapping("/hello")
     public ResponseEntity<Map<String, Object>> hello() {
         try {
-            // --- Version WebClient (bloquante mais moderne) ---
+            // --- Version WebClient (bloqueante) ---
             Map<String, Object> body = py2WebClient.get()
                     .uri("/api/hello")
                     .retrieve()
@@ -41,7 +40,7 @@ public class Py2ProxyController {
             return ResponseEntity.ok(body);
 
         } catch (Exception webClientException) {
-            // --- Fallback avec RestTemplate ---
+            // --- Fallback con RestTemplate ---
             try {
                 ResponseEntity<Map> resp = restTemplate.getForEntity(
                         py2BaseUrl + "/api/hello",

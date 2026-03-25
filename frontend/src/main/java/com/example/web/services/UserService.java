@@ -1,8 +1,10 @@
 package com.example.web.services;
 
+import com.example.web.dto.UserDto;
 import com.example.web.models.User;
 import com.example.web.repositories.UserRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import jakarta.validation.Valid;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +13,9 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository repo;
-    private final BCryptPasswordEncoder encoder;
-    //Ici passwordHash temporairement contient le mot de passe
-    // en clair depuis le formulaire ➝ avant d’être encodé.
-    public UserService(UserRepository repo, BCryptPasswordEncoder encoder) {
+    private final PasswordEncoder encoder;
+
+    public UserService(UserRepository repo, PasswordEncoder encoder) {
         this.repo = repo;
         this.encoder = encoder;
     }
@@ -23,12 +24,16 @@ public class UserService {
         return repo.findAll();
     }
 
-    public User create(User user) {
-        user.setPasswordHash(encoder.encode(user.getPasswordHash()));
-        return repo.save(user);
+    public void createUser(UserDto dto) {
+        User user = new User();
+        user.setUsername(dto.getUsername());
+        user.setEmail(dto.getEmail());
+        user.setRole(dto.getRole());
+        user.setPasswordHash(encoder.encode(dto.getPassword()));
+        repo.save(user);
     }
 
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
 }

@@ -3,6 +3,8 @@ spring:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://db:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8}
     username: ${SPRING_DATASOURCE_USERNAME:appuser}
     password: ${SPRING_DATASOURCE_PASSWORD:password}
+    thymeleaf:
+      check-template-location: false # Evita la busca de templates en backend están en frontend
 
   jpa:
     hibernate:

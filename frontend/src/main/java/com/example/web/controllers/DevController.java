@@ -16,6 +16,11 @@ public class DevController {
         this.dbHealthService = dbHealthService;
     }
 
+    @GetMapping("/dev")
+    public String root() {
+        return "redirect:/dev/dashboard";
+    }
+
     @GetMapping("/dev/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("pageName", "Espace Développeur");
@@ -25,11 +30,8 @@ public class DevController {
     @GetMapping("/dev/tools")
     public String tools(Model model) {
 
-        boolean dbUp = dbHealthService.isDatabaseUp();
-        String dbVersion = dbHealthService.getDbVersion();
-
-        model.addAttribute("dbUp", dbUp);
-        model.addAttribute("dbVersion", dbVersion);
+        model.addAttribute("dbUp", dbHealthService.isDatabaseUp());
+        model.addAttribute("dbVersion", dbHealthService.getDbVersion());
         model.addAttribute("pageName", "Dev Tools");
 
         return "dev-tools";
