@@ -8,6 +8,6 @@ public class AuthController {
 
     @GetMapping("/logout-success")
     public String logoutSuccess() {
-        return "auth/logout"; // templates/auth/logout.html
+        return "auth/logout-success";
     }
 }

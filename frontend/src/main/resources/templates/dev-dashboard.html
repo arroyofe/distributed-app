@@ -5,9 +5,11 @@
       layout:decorate="~{layout}">
 
 <body>
-<div th:replace="~{this :: #pageTitleSetter}"></div>
-<span id="pageTitleSetter" th:with="pageName='Espacio DEV'" style="display:none;"></span>
-<div layout:fragment="content">
+<main layout:fragment="content">
+    <span id="pageTitleSetter"
+          th:with="pageName='Dashboard para DEV'"
+          style="display:none;"></span>
+
 
     <h2>Espacio Desarrolladores</h2>
 
@@ -32,6 +34,6 @@
         <a th:href="@{/dev/tools}" class="btn btn-primary">Abrir herramientas</a>
     </div>
 
-</div>
+</main>
 </body>
 </html>

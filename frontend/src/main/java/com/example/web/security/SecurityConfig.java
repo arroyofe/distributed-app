@@ -3,79 +3,76 @@ package com.example.web.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
 
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig{
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
+@EnableMethodSecurity
+public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable())  //Provisional sin encriptación usado en los tests
+                .csrf(csrf -> csrf.disable()) // si tu veux garder CSRF désactivé
 
-            .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(auth -> auth
+                        // PUBLICO
+                        .requestMatchers("/", "/home", "/index", "/login", "/error/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**").permitAll()
 
+                        // ITEMS PUBLICO
+                        .requestMatchers(HttpMethod.GET, "/items", "/items/*").permitAll()
 
-                // Lectura unicamente → público: accesible a todos los usuarios; sin contraseña
-                .requestMatchers(HttpMethod.GET, "/items", "/items/*").permitAll()
+                        // ITEMS ADMIN
+                        .requestMatchers("/items/new", "/items/edit/**", "/items/delete/**").authenticated()
 
-                // CRUD → Accesible al ADMIN únicamente (login y contraseña admin)
-                .requestMatchers("/items/create", "/items/edit/**", "/items/delete/**").hasRole("ADMIN")
+                        // USERS ADMIN
+                        .requestMatchers("/users/**").hasRole("ADMIN")
 
-                // Páginas de acceso público
-                .requestMatchers("/", "/home", "/index", "/login", "/error/**").permitAll()
-                .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**").permitAll()
+                        // DEV + ADMIN
+                        .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
 
-                // Zonas reservadas a admin
-                .requestMatchers("/users/**").hasRole("ADMIN")
+                        // POKEMON ADMIN
+                        .requestMatchers("/pokemons/**").hasRole("ADMIN") // Seuls les admins voient les pokémons
+                        .requestMatchers(HttpMethod.POST, "/pokemons/edit/**").hasRole("ADMIN")
 
-                // Zona reservada a los desarrolladores (dev) y al admin
-                .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
-
-                // Cualquier otro caso → neceista autentificación con contraseña
-                .anyRequest().authenticated()
+                        // EL RESTO DE CASOS→ autentificación
+                        .anyRequest().authenticated()
                 )
 
+                // LOGIN
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/index", true)
+                        .defaultSuccessUrl("/index", false)
                         .permitAll()
                 )
 
+                // LOGOUT
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/logout-success")
                         .permitAll()
                 );
 
-        // System.out.println(">>> Using MY SecurityFilterChain <<<"); PROVISIONAL PARA TESTS
         return http.build();
     }
 
-    /* PROVISIONAL para tests
+    //Gestion del dialecto Spring
     @Bean
-    public ApplicationRunner debugChains(List<SecurityFilterChain> chains) {
-        return args -> {
-            System.out.println(">>> SecurityFilterChains found:");
-            chains.forEach(c -> System.out.println(" - " + c));
-        };
+    public SpringSecurityDialect securityDialect() {
+        return new SpringSecurityDialect();
     }
 
-    @PostConstruct
-    public void debug() {
-        System.out.println(">>> SecurityConfig ACTIVE <<<");
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-    */
 }

@@ -23,7 +23,7 @@ public class DevController {
 
     @GetMapping("/dev/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("pageName", "Espace Développeur");
+        model.addAttribute("pageName", "Espacio Desarrollador");
         return "dev-dashboard";
     }
 

@@ -4,9 +4,10 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <body>
-<div th:replace="~{this :: #pageTitleSetter}"></div>
-<span id="pageTitleSetter" th:with="pageName='Apy2'" style="display:none;"></span>
-<div layout:fragment="content">
+<main layout:fragment="content">
+  <span id="pageTitleSetter"
+        th:with="pageName='API2'"
+        style="display:none;"></span>
 
   <h1>Respuesta de Py2 via Backend</h1>
 
@@ -22,6 +23,6 @@
   <strong>Erreur :</strong>
   <pre th:text="${error}"></pre>
 </div>
-</div>
+</main>
 </body>
 </html>

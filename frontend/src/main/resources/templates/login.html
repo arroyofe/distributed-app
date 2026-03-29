@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+
       layout:decorate="~{layout}">
 
-<head>
-    <!-- Título para la conexión -->
-    <title>Página de Conexión</title>
-</head>
 
 <body>
 
-<div layout:fragment="content" class="login-container">
-
     <!-- Título de la página -->
-    <div th:replace="~{this :: #pageTitleSetter}"></div>
-    <span id="pageTitleSetter" th:with="pageName='Connexion'" style="display:none;"></span>
+    <main layout:fragment="content">
+        <span id="pageTitleSetter"
+              th:with="pageName='Login'"
+              style="display:none;"></span>
 
-    <div style="max-width:400px; margin:60px auto; padding:30px; border-radius:12px;
+
+        <div style="max-width:400px; margin:60px auto; padding:30px; border-radius:12px;
                 background:#ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
 
         <h2 style="color:#003366; text-align:center; margin-bottom:25px;">Identification</h2>
@@ -46,9 +45,9 @@
                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;">
             </div>
 
-            <!-- Token CSRF (no es necesario en principio pero se indica por sécuridad) -->
+            <!-- Token CSRF (no es necesario en principio pero se indica por sécuridad)
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-
+            -->
             <button type="submit"
                     style="width:100%; padding:12px; background:#003366; color:white;
                            border:none; border-radius:6px; font-size:16px; font-weight:bold; cursor:pointer; transition: background 0.3s;">
@@ -60,7 +59,7 @@
             <p>Aceso reservado a los administradores para la gestión de datos de la base.</p>
         </div>
     </div>
-</div>
+</main>
 
 </body>
 </html>

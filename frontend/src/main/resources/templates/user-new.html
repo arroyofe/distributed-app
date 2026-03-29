@@ -5,9 +5,10 @@
       layout:decorate="~{layout}">
 
 <body>
-<div layout:fragment="content">
-
-    <span th:with="pageName='Nuevo usuario'"></span>
+<main layout:fragment="content">
+    <span id="pageTitleSetter"
+          th:with="pageName='Nuevo usuario'"
+          style="display:none;"></span>
 
     <h2>Crear un nuevo usuario</h2>
 
@@ -39,6 +40,6 @@
         <a th:href="@{/users}" class="btn btn-secondary">← Volver</a>
     </div>
 
-</div>
+</main>
 </body>
 </html>

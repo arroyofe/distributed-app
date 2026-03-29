@@ -4,9 +4,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <body>
-<div th:replace="~{this :: #pageTitleSetter}"></div>
-<span id="pageTitleSetter" th:with="pageName='Errores'" style="display:none;"></span>
-<div layout:fragment="content" style="text-align:center; margin-top:50px;">
+<main layout:fragment="content">
+
+    <span id="pageTitleSetter"
+          th:with="pageName='Errores'"
+          style="display:none;"></span>
+
 
 
         <div style="text-align:center; padding: 40px 20px;">
@@ -44,6 +47,6 @@
 
         </div>
 
-    </div>
+</main>
 </body>
 </html>

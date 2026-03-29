@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
+           xmlns:th="http://www.thymeleaf.org"
+           xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+           xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+           th:with="ignoreSec=false">
 
 <head>
   <meta charset="UTF-8">
@@ -40,39 +40,35 @@
 
       <!-- Rol -->
       <div>
-        <small>Rôle :
+        <small>Rol :
           <span th:text="${#strings.replace(#authentication.authorities[0], 'ROLE_', '')}"></span>
         </small>
       </div>
 
       <!-- Botón logout compacto -->
       <div style="margin-top:4px;">
-        <a href="/logout"
-           title="Dsconexión"
-           style="
-               font-size: 18px;
-               color: #ffcccc;
-               text-decoration: none;
-               margin-left: 5px;
-           ">
-          🔒
-        </a>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+          <button type="submit" title="Desconexión"
+                  style="background:none;border:none;font-size:18px;color:#ffcccc;cursor:pointer;">
+            🔒
+          </button>
+        </form>
       </div>
 
     </div>
 
     <!-- 3. Enlace de conexión si no se ha conectado nadie -->
     <div sec:authorize="isAnonymous()">
-      <a th:href="@{/login}" style="font-size: 0.9em;">Se connecter</a>
+      <a th:href="@{/login}" style="font-size: 0.9em;color:white">Conectarse</a>
     </div>
   </div>
 
 
 </header>
 
-<!-- Zono destinada ser cambiada en cada pógina segón contenido -->
+<!-- Zona destinada ser cambiada en cada página según contenido -->
 <main class="content" layout:fragment="content">
-  <!-- NO SE INSERTA más cádigo aquí reservado al contenido de la página -->
+  <!-- NO SE INSERTA más cádigo aquí, reservado al contenido de la página -->
 
 </main>
 

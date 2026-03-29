@@ -1,11 +1,13 @@
 import os
+
 os.environ["DB_HOST"] = "localhost"
 os.environ["DB_PORT"] = "5432"
 os.environ["DB_NAME"] = "appdb"
 os.environ["DB_USER"] = "appuser"
 os.environ["DB_PASSWORD"] = "password"
 
-from app import create_app
+from appbis import create_app
+
 
 def test_healthz(monkeypatch):
     app = create_app()

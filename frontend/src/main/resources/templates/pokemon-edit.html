@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="http://ultraq.net.nz"
+      xmlns:th="http://thymeleaf.org">
+<body>
+
+<!-- Título de la página -->
+<main layout:fragment="content">
+        <span id="pageTitleSetter"
+              style="display:none;"
+              th:with="pageName='Modificar Pokemones'"></span>
+    <h2>Modifier le Pokémon</h2>
+    <form class="form-card" method="post" th:action="@{'/pokemons/edit/' + ${pokemon.id}}" th:object="${pokemon}">
+        <input th:field="*{id}" type="hidden">
+
+        <label>Nom :</label>
+        <input class="form-control" required th:field="*{name}" type="text">
+
+        <label>Type :</label>
+        <input class="form-control" required th:field="*{type}" type="text">
+
+        <label>Niveau :</label>
+        <input class="form-control" required th:field="*{level}" type="number">
+
+        <button class="btn btn-primary mt-3" type="submit">Enregistrer les modifications</button>
+        <a class="btn btn-secondary mt-3" th:href="@{/pokemons/admin}">Annuler</a>
+    </form>
+</main>
+
+
+</body>
+</html>

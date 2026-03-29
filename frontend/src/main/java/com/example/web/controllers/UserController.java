@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping
     public String list(Model model) {
         model.addAttribute("users", userService.findAll());
-        model.addAttribute("pageName", "Gestión de usuarios");
+        model.addAttribute("pageName", "Usuarios");
         return "users";
     }
 

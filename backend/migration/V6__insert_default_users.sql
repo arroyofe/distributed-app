@@ -1,1 +1,0 @@
--- Se deja vacío debido a Flyway error con el fichero

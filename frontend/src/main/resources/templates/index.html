@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}" xmlns:sec="http://www.w3.org/1999/xhtml">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+      xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<div th:replace="~{this :: #pageTitleSetter}"></div>
-<span id="pageTitleSetter" th:with="pageName='NOM_DE_LA_PAGE'" style="display:none;"></span>
-<div layout:fragment="content" class="index-container" style="text-align:center; margin-top:40px;">
+<main layout:fragment="content">
+    <span id="pageTitleSetter"
+          style="display:none;"
+          th:with="pageName='Indice'"></span>
+
 
     <h2 style="color:#003366;">Indice</h2>
 
@@ -28,7 +31,7 @@
         <a class="btn btn-secondary"
            style="font-size:18px; padding:12px 20px;"
            th:href="@{/login}">
-            🔑 Conexión como administrador
+            🔑 Login
         </a>
     </div>
 
@@ -41,24 +44,37 @@
     </div>
 
 
-    <!-- SECTION: Acceso desarrolladores -->
+    <!-- SECCION: Acceso desarrolladores -->
     <div sec:authorize="hasAnyRole('ADMIN','DEV')" style="margin-top:30px;">
-        <a th:href="@{/dev/dashboard}"
-           class="btn btn-outline-secondary"
-           style="font-size:18px; padding:12px 20px;">
-            🛠️ Espace développeur
+        <a class="btn btn-outline-secondary"
+           style="font-size:18px; padding:12px 20px;"
+           th:href="@{/dev/dashboard}">
+            🛠️ Espacio desarrolladores
         </a>
     </div>
 
-    <!-- SECTION: Acceso administradores -->
+    <!-- SECCION: Acceso administradores -->
     <div sec:authorize="hasRole('ADMIN')" style="margin-top:20px;">
-        <a th:href="@{/users}"
-           class="btn btn-outline-danger"
-           style="font-size:18px; padding:12px 20px;">
-            🔐 Gestion des utilisateurs
+        <a class="btn btn-outline-danger"
+           style="font-size:18px; padding:12px 20px;"
+           th:href="@{/users}">
+            🔐 Gesti1ón de usuarios
         </a>
     </div>
 
-</div>
+    <li class="nav-item" sec:authorize="isAuthenticated()">
+        <a class="nav-link" th:href="@{/pokemons}">
+            <i class="bi bi-bug"></i> Pokémon
+        </a>
+    </li>
+
+    <!-- Enlace de gestión de los Pokémon. Accesible para ADMIN -->
+    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+        <a class="nav-link text-warning" th:href="@{/pokemons/admin}">
+            <i class="bi bi-gear"></i> Gestion Pokémon
+        </a>
+    </li>
+
+</main>
 </body>
 </html>

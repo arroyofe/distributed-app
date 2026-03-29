@@ -5,9 +5,11 @@
       layout:decorate="~{layout}">
 
 <body>
-<div th:replace="~{this :: #pageTitleSetter}"></div>
-<span id="pageTitleSetter" th:with="pageName='Inicial'" style="display:none;"></span>
-<div layout:fragment="content" class="home-container" style="text-align:center; margin-top:40px;">
+<main layout:fragment="content">
+    <span id="pageTitleSetter"
+          th:with="pageName='Inicio'"
+          style="display:none;"></span>
+
 
     <h2 style="color:#003366;">Bienvenido a Sistemas Distribuidos de la EPI de la UBU</h2>
 
@@ -24,6 +26,6 @@
         </a>
     </div>
 
-</div>
+</main>
 </body>
 </html>

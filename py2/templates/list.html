@@ -5,10 +5,26 @@
     <title>Lista de Items</title>
 
     <style>
-        body { font-family: Arial, sans-serif; background-color: #fafafa; margin: 40px; }
-        h1 { text-align: center; color: #333; }
-        .container { width: 80%; margin: auto; }
-        .actions-top { text-align: right; margin-bottom: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .actions-top {
+            text-align: right;
+            margin-bottom: 20px;
+        }
 
         .btn {
             padding: 8px 14px;
@@ -17,20 +33,51 @@
             text-decoration: none;
             border-radius: 4px;
         }
-        .btn:hover { background-color: #004c99; }
 
-        table { width: 100%; border-collapse: collapse; background-color: white; }
-        th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
-        tr:hover { background-color: #f2f2f2; }
+        .btn:hover {
+            background-color: #004c99;
+        }
 
-        .btn-edit { background-color: #ffa500; }
-        .btn-edit:hover { background-color: #cc8400; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
 
-        .btn-delete { background-color: #d9534f; }
-        .btn-delete:hover { background-color: #b52b27; }
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
 
-        .btn-small { padding: 6px 10px; font-size: 13px; }
-        form { display: inline; }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .btn-edit {
+            background-color: #ffa500;
+        }
+
+        .btn-edit:hover {
+            background-color: #cc8400;
+        }
+
+        .btn-delete {
+            background-color: #d9534f;
+        }
+
+        .btn-delete:hover {
+            background-color: #b52b27;
+        }
+
+        .btn-small {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        form {
+            display: inline;
+        }
     </style>
 </head>
 
@@ -40,14 +87,14 @@
     <h1>Lista de los Items</h1>
 
     <div class="actions-top">
-        <a href="/api3{{ url_for('web_new_item_form') }}" class="btn">+ Añadir un item</a>
+        <a class="btn" href="/api3{{ url_for('web_new_item_form') }}">+ Añadir un item</a>
     </div>
 
     <table>
         <tr>
             <th>ID</th>
-            <th>Nom</th>
-            <th>Description</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
             <th style="width: 180px;">Actions</th>
         </tr>
 
@@ -57,14 +104,14 @@
             <td>{{ it.name }}</td>
             <td>{{ it.description }}</td>
             <td>
-                <a href="/api3{{ url_for('web_edit_item_form', item_id=it.id) }}"
-                   class="btn btn-small btn-edit">
+                <a class="btn btn-small btn-edit"
+                   href="/api3{{ url_for('web_edit_item_form', item_id=it.id) }}">
                     Modificar
                 </a>
 
-                <form method="post" action="/api3{{ url_for('web_delete_item', item_id=it.id) }}">
-                    <button type="submit" class="btn btn-small btn-delete"
-                            onclick="return confirm('Suprimir este item ?');">
+                <form action="/api3{{ url_for('web_delete_item', item_id=it.id) }}" method="post">
+                    <button class="btn btn-small btn-delete" onclick="return confirm('Suprimir este item ?');"
+                            type="submit">
                         Suprimir
                     </button>
                 </form>

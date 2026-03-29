@@ -17,7 +17,7 @@ body {
 }
 
 .header-left, .header-center, .header-right {
-    flex: 1;      /* Cada parte usa el mismo espacio */
+    flex: 1; /* Cada parte usa el mismo espacio */
     display: flex; /* Permite la flexibilidas de las partes */
     align-items: center; /* Centra verticalmente los contenidos */
     justify-content: center; /* Centra horizontalmente los contenidos */
@@ -40,9 +40,9 @@ body {
 }
 
 .logo {
-    width: 20%;        /* Ajustando al 20% del contenedor */
-    max-width: 80px;  /* Limitar el tamaño a un ancho máximo */
-    height: auto;     /* Mantener proporciones */
+    width: 20%; /* Ajustando al 20% del contenedor */
+    max-width: 80px; /* Limitar el tamaño a un ancho máximo */
+    height: auto; /* Mantener proporciones */
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -51,7 +51,7 @@ body {
     padding: 20px;
 }
 
-.main{
+.main {
     display: flex;
     margin-bottom: 60px;
 }
@@ -69,6 +69,7 @@ footer {
     bottom: 0;
     width: 100%; /* Asegura de que ocupe toda la anchura */
 }
+
 .footer-left, .footer-center, .footer-right {
     flex: 1;
 }
@@ -78,7 +79,7 @@ footer {
 }
 
 .footer-right {
-    text-align: right;
+    text-align: center;
 }
 
 .footer-right a {
@@ -96,7 +97,7 @@ footer {
     padding: 20px;
     margin: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .input {
@@ -130,10 +131,21 @@ footer {
     color: white;
 }
 
-.btn-primary { background: #0066cc; }
-.btn-warning { background: #ff9800; }
-.btn-danger  { background: #d9534f; }
-.btn-secondary { background: #666; }
+.btn-primary {
+    background: #0066cc;
+}
+
+.btn-warning {
+    background: #ff9800;
+}
+
+.btn-danger {
+    background: #d9534f;
+}
+
+.btn-secondary {
+    background: #666;
+}
 
 .btn-small {
     padding: 4px 9px;

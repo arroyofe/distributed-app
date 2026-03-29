@@ -11,23 +11,25 @@ services:
     ports:
       - "3306:3306"
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD --silent"]
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD --silent" ]
       interval: 5s
       timeout: 5s
-      retries: 30
+      retries: 10
+      start_period: 15s
+
     volumes:
       - dbdata:/var/lib/mysql
 
-# -- SONAR (desactivado durante test provisionales para disminuir carga --
-#  sonarqube:
-#   image: sonarqube:10.6-community
-#    environment:
-#      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
-#    ports:
-#      - "9000:9000"
-#    volumes:
-#      - sonar_data:/opt/sonarqube/data
-#      - sonar_extensions:/opt/sonarqube/extensions
+  # -- SONAR (desactivado durante test provisionales para disminuir carga --
+  #  sonarqube:
+  #   image: sonarqube:10.6-community
+  #    environment:
+  #      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+  #    ports:
+  #      - "9000:9000"
+  #    volumes:
+  #      - sonar_data:/opt/sonarqube/data
+  #      - sonar_extensions:/opt/sonarqube/extensions
 
   backend:
     build:
@@ -43,7 +45,7 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -74,15 +76,27 @@ services:
       - "8081:8081"
 
   py1:
+
     build:
       context: ../py1
       dockerfile: Dockerfile
+    depends_on:
+      backend:
+        condition: service_healthy
+      db:
+        condition: service_healthy
     environment:
       FLASK_ENV: production
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5001:5000"
+
     healthcheck:
-      test: ["CMD", "python3", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:5000/health').read(); sys.exit(0)"]
+      test: [ "CMD", "python3", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:5000/health').read(); sys.exit(0)" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -105,7 +119,7 @@ services:
     ports:
       - "5002:5000"
     healthcheck:
-      test: ["CMD", "python3", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:5000/health').read(); sys.exit(0)"]
+      test: [ "CMD", "python3", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:5000/health').read(); sys.exit(0)" ]
       interval: 10s
       timeout: 5s
       retries: 5

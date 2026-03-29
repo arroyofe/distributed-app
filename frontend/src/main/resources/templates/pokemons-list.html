@@ -1,0 +1,44 @@
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="http://ultraq.net.nz"
+      xmlns:th="http://thymeleaf.org">
+<body>
+
+<!-- Título de la página -->
+<main layout:fragment="content">
+        <span id="pageTitleSetter"
+              style="display:none;"
+              th:with="pageName='Pokemones'"></span>
+    <h2>Lista de Pokemones</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Nivel</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${pokemons}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td>
+                <span class="badge" th:classappend="${p.type == 'Eléctrico' ? 'bg-warning' : 'bg-info'}"
+                      th:text="${p.type}">
+                    Type
+                </span>
+            </td>
+            <td th:text="${p.level}">10</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="alert alert-info" th:if="${#lists.isEmpty(pokemons)}">
+        No se han encontrado pokemones en la base de datos.
+    </div>
+</main>
+
+</body>
+</html>

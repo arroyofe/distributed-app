@@ -1,6 +1,5 @@
 package com.example.web.controllers;
 
-
 import com.example.web.dto.ItemDto;
 import com.example.web.services.ItemService;
 import jakarta.validation.Valid;
@@ -19,44 +18,60 @@ public class ItemController {
         this.service = service;
     }
 
-    @GetMapping("/items")
+    // ------------------------------------------------------------
+    // 1) LISTA PUBLIQCQ DE LOS ITEMS  → accesible à todos
+    // ------------------------------------------------------------
+    @GetMapping("")
     public String list(Model m) {
         m.addAttribute("items", service.findAll());
         m.addAttribute("pageName", "Lista de items");
-        return "items";
+        return "items";   // templates/items.html
     }
 
-    @GetMapping("/admin/items/new")
+    // ------------------------------------------------------------
+    // 2) CREACION DE UN ITEM  → ADMIN únicamente
+    // ------------------------------------------------------------
+    @GetMapping("/new")
     @PreAuthorize("hasRole('ADMIN')")
     public String newItem(Model m) {
         m.addAttribute("item", new ItemDto());
         m.addAttribute("pageName", "Nuevo item");
-        return "item-new";
+        return "item-new";   // templates/item-new.html
     }
 
-    @PostMapping("/admin/items/new")
+    @PostMapping("/new")
     @PreAuthorize("hasRole('ADMIN')")
-    public String create(@Valid @ModelAttribute("item") ItemDto dto) { //@Valid valida los formularios
+    public String create(@Valid @ModelAttribute("item") ItemDto dto) {
         service.create(dto);
         return "redirect:/items";
     }
 
-    @GetMapping("/admin/items/edit/{id}")
+    // ------------------------------------------------------------
+    // 3) MODIFICACION DE UN ITEM  → ADMIN únicamente
+    // ------------------------------------------------------------
+    @GetMapping("/edit/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String editForm(@PathVariable Long id, Model m) {
-        m.addAttribute("item", service.findById(id));
+        // Si findById devuelve un Optional, hace un .get() sino un  .orElseThrow()
+        ItemDto dto = service.findById(id);
+        if (dto == null) return "redirect:/items";
+
+        m.addAttribute("item", dto);
         m.addAttribute("pageName", "Modificar item");
         return "item-edit";
     }
 
-    @PostMapping("/admin/items/edit/{id}")
+    @PostMapping("/edit/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String editSubmit(@PathVariable Long id, @ModelAttribute ItemDto dto) {
         service.update(id, dto);
         return "redirect:/items";
     }
 
-    @PostMapping("/admin/items/delete/{id}")
+    // ------------------------------------------------------------
+    // 4) SUPRESION DE UN ITEM  → ADMIN únicamente
+    // ------------------------------------------------------------
+    @PostMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
         service.delete(id);
