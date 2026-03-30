@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main layout:fragment="content">
+    <span id="pageTitleSetter"
+          style="display:none;"
+          th:with="pageName='Edicion Usuarios'"></span>
+    <form class="form-card" method="post" th:action="@{/users/edit/{id}(id=${userId})}">
+        <label>Usuario :</label>
+        <input class="input" name="username" th:value="${user.username}" type="text">
+
+        <label>Email :</label>
+        <input class="input" name="email" th:value="${user.email}" type="email">
+
+        <label>Contraseñ :</label>
+        <input class="input" name="password" type="password">
+        <small style="color: gray;">Laissez vide pour ne pas modifier le mot de passe actuel.</small>
+
+        <label>Rol :</label>
+        <select class="input" name="role">
+            <option th:selected="${user.role == 'ROLE_ADMIN'}" value="ROLE_ADMIN">ADMIN</option>
+            <option th:selected="${user.role == 'ROLE_USER'}" value="ROLE_USER">USER</option>
+            <option th:selected="${user.role == 'ROLE_DEV'}" value="ROLE_DEV">DEV</option>
+        </select>
+
+        <button class="btn btn-success" style="margin-top:15px;" type="submit">Modificar</button>
+    </form>
+
+
+</main>
+</body>

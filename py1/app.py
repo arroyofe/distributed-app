@@ -104,7 +104,7 @@ def update_pokemon(pokemon_id):
         p.type = data.get("type", p.type)
         p.level = data.get("level", p.level)
         s.commit()
-        return {"status": "updated"}, 200
+        return {"status": "updated", "message": "updated"}, 200
 
 
 # --- SUPRESION ---

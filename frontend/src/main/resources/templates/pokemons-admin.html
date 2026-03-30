@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es" layout:decorate="~{layout}"
+<html lang="fr" layout:decorate="~{layout}"
       xmlns:layout="http://ultraq.net.nz"
       xmlns:th="http://thymeleaf.org">
 <body>
 <main layout:fragment="content">
-    <h2>Gestion de la Base Pokémon</h2>
+    <h2 class="mb-4">Gestión de la Base Pokémon</h2>
 
-    <!-- Formulario de inserción -->
-    <div class="card mb-4 p-3">
+    <!-- Formulario para añadir Pokémones -->
+    <div class="card mb-4 p-3 shadow-sm">
         <form class="row g-3" method="post" th:action="@{/pokemons/new}">
             <div class="col-md-4">
                 <input class="form-control" name="name" placeholder="Nom (ex: Salameche)" required type="text">
@@ -19,42 +19,58 @@
                 <input class="form-control" name="level" placeholder="Niveau" type="number" value="1">
             </div>
             <div class="col-md-3">
-                <button class="btn btn-warning w-100" type="submit">Añadir a la base</button>
+                <button class="btn btn-warning w-100" type="submit">Añadir el Pokémon</button>
             </div>
         </form>
     </div>
 
-    <!-- Table simple de visualisation -->
-    <table class="table table-striped">
-        <thead>
+    <!-- Tabla de gestión -->
+    <table class="table table-hover align-middle">
+        <thead class="table-dark">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Tipo</th>
             <th>Nivel</th>
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="p : ${pokemons}">
+            <!-- 1. Colonne ID -->
             <td th:text="${p.id}"></td>
-            <td th:text="${p.name}"></td>
-            <td th:text="${p.type}"></td>
-            <td th:text="${p.level}"></td>
-            <td>
-                <!-- Botón Modificar (Enlace al formulario) -->
-                <a class="btn btn-warning btn-sm" th:href="@{'/pokemons/edit/' + ${p.id}}">
-                    <i class="bi bi-pencil">Modificar</i>
-                </a>
 
-                <!-- Botón Suprimir -->
-                <form method="post" style="display:inline;" th:action="@{'/pokemons/delete/' + ${p.id}}">
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('Suprimir ?')" type="submit">
-                        <i class="bi bi-trash">Suprimir</i>
-                    </button>
-                </form>
+            <!-- 2. Formulaire de Modification (englobe les colonnes de saisie) -->
+            <form method="post" th:action="@{/pokemons/edit/{id}(id=${p.id})}">
+                <td>
+                    <input class="form-control form-control-sm" name="name" th:value="${p.name}" type="text">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" name="type" th:value="${p.type}" type="text">
+                </td>
+                <td>
+                    <input class="form-control form-control-sm" name="level" th:value="${p.level}" type="number">
+                </td>
+                <td>
+                    <!-- Cellule unique pour les deux boutons (Modif + Suppr) -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success btn-sm" type="submit">
+                            Modificar
+                        </button>
+            </form> <!-- Fin du formulaire de modification -->
+
+            <!-- 3. Formulaire de Suppression (DANS la même cellule <td>) -->
+            <form method="post" th:action="@{/pokemons/delete/{id}(id=${p.id})}"
+                  onsubmit="return confirm('¿Suprimir este Pokémon?')">
+                <button class="btn btn-danger btn-sm" type="submit">
+                    Suprimir
+                </button>
+            </form>
+            </div>
             </td>
         </tr>
         </tbody>
+
     </table>
 </main>
 </body>

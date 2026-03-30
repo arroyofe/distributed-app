@@ -7,74 +7,76 @@
 
 <body>
 <main layout:fragment="content">
-    <span id="pageTitleSetter"
-          style="display:none;"
-          th:with="pageName='Indice'"></span>
-
-
-    <h2 style="color:#003366;">Indice</h2>
-
-    <p style="font-size:18px; color:#444;">
-        Escoja una opción para continuar :
-    </p>
-
-    <!-- SECCION: Acceso general -->
-    <div style="margin-top:30px;">
-        <a class="btn btn-primary"
-           style="font-size:18px; padding:12px 20px;"
-           th:href="@{/items}">
-            📦 Ver la lista de items en el almacén
-        </a>
+    <!-- Titre de bienvenue dynamique -->
+    <div class="py-4 border-bottom mb-4">
+        <h2 class="display-5 text-primary">Panel de Control</h2>
+        <p class="lead text-muted">Bienvenido, <span class="fw-bold text-dark" sec:authentication="name">Usuario</span>.
+            Seleccione una acción:</p>
     </div>
 
-    <div style="margin-top:20px;">
-        <a class="btn btn-secondary"
-           style="font-size:18px; padding:12px 20px;"
-           th:href="@{/login}">
-            🔑 Login
-        </a>
+    <div class="row g-4">
+
+        <!-- SECTION: ACCESO GENERAL (Visible por todos) -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
+                    <h5 class="card-title fw-bold">Almacén</h5>
+                    <p class="card-text text-muted small">Consultar la lista completa de items disponibles.</p>
+                    <a class="btn btn-primary w-100 mt-2" th:href="@{/items}">Ver Items</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: POKEMON (Visible por todos autenticados) -->
+        <div class="col-md-6 col-lg-4" sec:authorize="isAuthenticated()">
+            <div class="card h-100 shadow-sm border-0 border-top border-info border-4">
+                <div class="card-body text-center py-4">
+                    <div class="display-4 text-info mb-3"><i class="bi bi-bug"></i></div>
+                    <h5 class="card-title fw-bold">Pokémon</h5>
+                    <p class="card-text text-muted small">Explorar la lista de Pokémon registrados.</p>
+                    <a class="btn btn-primary text-white w-100 mt-2" th:href="@{/pokemons}">Ver Pokémones</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DEV SPACE (ADMIN & DEV) -->
+        <div class="col-md-6 col-lg-4" sec:authorize="hasAnyRole('ADMIN','DEV')">
+            <div class="card h-100 shadow-sm border-0 border-top border-secondary border-4">
+                <div class="card-body text-center py-4">
+                    <div class="display-4 text-secondary mb-3"><i class="bi bi-tools"></i></div>
+                    <h5 class="card-title fw-bold">Desarrollo</h5>
+                    <p class="card-text text-muted small">Acceder a las herramientas técnicas y métricas.</p>
+                    <a class="btn btn-outline-secondary w-100 mt-2" th:href="@{/dev/dashboard}">Espacio DEV</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: GESTIÓN ADMIN (Solo ADMIN) -->
+        <div class="col-md-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
+            <div class="card h-100 shadow-sm border-0 border-top border-danger border-4 bg-light">
+                <div class="card-body text-center py-4">
+                    <div class="display-4 text-danger mb-3"><i class="bi bi-shield-lock"></i></div>
+                    <h5 class="card-title fw-bold">Usuarios</h5>
+                    <p class="card-text text-muted small">Administrar cuentas, roles y seguridad.</p>
+                    <a class="btn btn-danger w-100 mt-2" th:href="@{/users}">Gestionar Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: GESTIÓN POKEMON (Solo ADMIN) -->
+        <div class="col-md-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
+            <div class="card h-100 shadow-sm border-0 border-top border-warning border-4 bg-light">
+                <div class="card-body text-center py-4">
+                    <div class="display-4 text-warning mb-3"><i class="bi bi-gear"></i></div>
+                    <h5 class="card-title fw-bold">Mantenimiento</h5>
+                    <p class="card-text text-muted small">Configuración avanzada de la base Pokémon.</p>
+                    <a class="btn btn-warning w-100 mt-2" th:href="@{/pokemons/admin}">Gestionar Pokémon</a>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div style="margin-top:30px;">
-        <a class="btn btn-secondary"
-           style="font-size:18px; padding:12px 20px;"
-           th:href="@{//api2API Python 2}">
-            📦 Ver la lista de valores de pokemon
-        </a>
-    </div>
-
-
-    <!-- SECCION: Acceso desarrolladores -->
-    <div sec:authorize="hasAnyRole('ADMIN','DEV')" style="margin-top:30px;">
-        <a class="btn btn-outline-secondary"
-           style="font-size:18px; padding:12px 20px;"
-           th:href="@{/dev/dashboard}">
-            🛠️ Espacio desarrolladores
-        </a>
-    </div>
-
-    <!-- SECCION: Acceso administradores -->
-    <div sec:authorize="hasRole('ADMIN')" style="margin-top:20px;">
-        <a class="btn btn-outline-danger"
-           style="font-size:18px; padding:12px 20px;"
-           th:href="@{/users}">
-            🔐 Gesti1ón de usuarios
-        </a>
-    </div>
-
-    <li class="nav-item" sec:authorize="isAuthenticated()">
-        <a class="nav-link" th:href="@{/pokemons}">
-            <i class="bi bi-bug"></i> Pokémon
-        </a>
-    </li>
-
-    <!-- Enlace de gestión de los Pokémon. Accesible para ADMIN -->
-    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-        <a class="nav-link text-warning" th:href="@{/pokemons/admin}">
-            <i class="bi bi-gear"></i> Gestion Pokémon
-        </a>
-    </li>
-
 </main>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable()) // si tu veux garder CSRF désactivé
+                .csrf(csrf -> csrf.disable()) // provisional desactivada
 
                 .authorizeHttpRequests(auth -> auth
                         // PUBLICO
@@ -40,9 +40,16 @@ public class SecurityConfig {
                         // DEV + ADMIN
                         .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
 
-                        // POKEMON ADMIN
-                        .requestMatchers("/pokemons/**").hasRole("ADMIN") // Seuls les admins voient les pokémons
-                        .requestMatchers(HttpMethod.POST, "/pokemons/edit/**").hasRole("ADMIN")
+                        // POKEMON LISTA (Consulta)
+                        .requestMatchers(HttpMethod.GET, "/pokemons").authenticated()
+
+                        // GESTION POKEMON (Todas las acciones previtas en /pokemons/admin/**)
+                        .requestMatchers("/pokemons/admin/**").hasRole("ADMIN")
+
+                        // GESTION POKEMON - ACCIONES específicas (POST para add/edit/delete)
+                        .requestMatchers("/pokemons/new/**").hasRole("ADMIN")
+                        .requestMatchers("/pokemons/edit/**").hasRole("ADMIN")
+                        .requestMatchers("/pokemons/delete/**").hasRole("ADMIN")
 
                         // EL RESTO DE CASOS→ autentificación
                         .anyRequest().authenticated()

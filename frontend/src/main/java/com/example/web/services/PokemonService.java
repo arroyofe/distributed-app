@@ -59,15 +59,18 @@ public class PokemonService {
     }
 
     public void update(Long id, PokemonDto dto) {
-        // Écriture en dur pour le test final
         String url = "http://py1:5000/pokemons/" + id;
         System.out.println(">>> TENTATIVE UPDATE SUR : " + url);
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<PokemonDto> request = new HttpEntity<>(dto, headers);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<PokemonDto> request = new HttpEntity<>(dto, headers);
-
-        rest.exchange(url, HttpMethod.PUT, request, String.class);
+            rest.exchange(url, HttpMethod.PUT, request, String.class);
+        } catch (Exception e) {
+            // En el log se ve el error si se intenta registrar sin cambios pero no bloquea al usuario
+            System.err.println("Error al modificar(no bloqueante) : " + e.getMessage());
+        }
     }
 
 

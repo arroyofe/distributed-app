@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html lang="es"
-           xmlns:th="http://www.thymeleaf.org"
-           xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-           xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
-           th:with="ignoreSec=false">
+      th:with="ignoreSec=false"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-  <title th:text="${pageTitle} ?: 'UBU - EPI - Sistemas Distribuidos'"></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${pageTitle} ?: 'UBU - EPI - Sistemas Distribuidos'"></title>
 </head>
 
 <body>
 
 <header class="header">
-  <!-- Contenido del header: escudo de la UBU a la izquierda-->
-  <div class="header-left">
-    <img th:src="@{/images/escudo.png}" alt="Logo UBU" class="logo">
-  </div>
-  <!-- Título en el centro -->
-  <div class="header-center">
-    <h1 class="site-title">Práctica 2 de Sistemas Distribuidos EPI - UBU</h1>
-  </div>
-  <!-- Nombre de la página a la derecha  y del usuario si está conectado-->
-  <div class="header-right">
-    <!-- 1. Página actual (se ve siempre) -->
-    <div style="margin-bottom: 5px;">
-      <span th:text="${pageName} ?: ''" style="font-weight: bold;"></span>
+    <!-- Contenido del header: escudo de la UBU a la izquierda y vuelta atrás-->
+    <div class="header-left">
+        <button class="btn btn-warning btn-sm shadow-sm" onclick="window.history.back()">
+            <i class="bi bi-arrow-left"></i> Volver atrás
+        </button>
+
+        <img alt="Logo UBU" class="logo" th:src="@{/images/escudo.png}">
     </div>
-
-    <!-- 2. Bloque usuario (solo si está conectado) -->
-    <div sec:authorize="isAuthenticated()"
-         style="font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 5px; text-align:right;">
-
-      <!-- Nombre del usuario -->
-      <div>
-        👤 <strong sec:authentication="name"></strong>
-      </div>
-
-      <!-- Rol -->
-      <div>
-        <small>Rol :
-          <span th:text="${#strings.replace(#authentication.authorities[0], 'ROLE_', '')}"></span>
-        </small>
-      </div>
-
-      <!-- Botón logout compacto -->
-      <div style="margin-top:4px;">
-        <form th:action="@{/logout}" method="post" style="display:inline;">
-          <button type="submit" title="Desconexión"
-                  style="background:none;border:none;font-size:18px;color:#ffcccc;cursor:pointer;">
-            🔒
-          </button>
-        </form>
-      </div>
-
+    <!-- Título en el centro -->
+    <div class="header-center">
+        <h1 class="site-title">Práctica 2 de Sistemas Distribuidos EPI - UBU</h1>
     </div>
+    <!-- Nombre de la página a la derecha  y del usuario si está conectado-->
+    <div class="header-right">
+        <!-- 1. Página actual (se ve siempre)
+        <div style="margin-bottom: 5px;">
+            <span style="font-weight: bold;" th:text="${pageName} ?: ''"></span>
+        </div>
+        -->
+        <!-- 2. Bloque usuario (solo si está conectado) -->
+        <div sec:authorize="isAuthenticated()"
+             style="font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 5px; text-align:right;">
 
-    <!-- 3. Enlace de conexión si no se ha conectado nadie -->
-    <div sec:authorize="isAnonymous()">
-      <a th:href="@{/login}" style="font-size: 0.9em;color:white">Conectarse</a>
+            <!-- Nombre del usuario -->
+            <div>
+                👤 <strong sec:authentication="name"></strong>
+            </div>
+
+            <!-- Rol -->
+            <div>
+                <small>Rol :
+                    <span th:text="${#strings.replace(#authentication.authorities[0], 'ROLE_', '')}"></span>
+                </small>
+            </div>
+
+            <!-- Botón logout compacto -->
+            <div style="margin-top:4px;">
+                <form method="post" style="display:inline;" th:action="@{/logout}">
+                    <button style="background:none;border:none;font-size:18px;color:#ffcccc;cursor:pointer;"
+                            title="Desconexión"
+                            type="submit">
+                        🔒
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- 3. Enlace de conexión si no se ha conectado nadie -->
+        <div sec:authorize="isAnonymous()">
+            <a style="font-size: 0.9em;color:white" th:href="@{/login}">Conectarse</a>
+        </div>
     </div>
-  </div>
 
 
 </header>
+<!-- Navegación entre las páginas -->
+<nav aria-label="breadcrumb" class="bg-light p-2 mb-4 shadow-sm rounded">
+    <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a th:href="@{/}">🏠 Inicio</a></li>
+        <!-- Da el título de la página actual-->
+        <li aria-current="page" class="breadcrumb-item active"
+            th:text="${pageName ?: ''}">Nom de la page
+        </li>
+    </ol>
+</nav>
 
 <!-- Zona destinada ser cambiada en cada página según contenido -->
 <main class="content" layout:fragment="content">
-  <!-- NO SE INSERTA más cádigo aquí, reservado al contenido de la página -->
+    <!-- NO SE INSERTA más cádigo aquí, reservado al contenido de la página -->
 
 </main>
 
 <footer class="footer">
-  <!-- Contenido del footer a poner en todas las páginas -->
-  <div class="footer-left">
-    <strong>Contacto :</strong><br>
-    <span>Fernando Arroyo</span><br>
-    <span>far0006@alu.ubu.es</span><br>
-    <span>Universidad de Burgos</span>
-  </div>
+    <!-- Contenido del footer a poner en todas las páginas -->
+    <div class="footer-left">
+        <strong>Contacto :</strong><br>
+        <span>Fernando Arroyo</span><br>
+        <span>far0006@alu.ubu.es</span><br>
+        <span>Universidad de Burgos</span>
+    </div>
 
-  <div class="footer-center">
-    <span th:text="${#dates.format(#dates.createNow(),'dd/MM/yyyy')}"></span>
-  </div>
+    <div class="footer-center">
+        <span th:text="${#dates.format(#dates.createNow(),'dd/MM/yyyy')}"></span>
+    </div>
 
-  <div class="footer-right">
-    <a th:href="@{/}">Volver al inicio</a>
-  </div>
+    <div class="footer-right">
+        <a th:href="@{/}">Volver al inicio</a>
+    </div>
 
 </footer>
 

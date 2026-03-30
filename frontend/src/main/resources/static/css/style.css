@@ -52,7 +52,7 @@ body {
 }
 
 .main {
-    display: flex;
+    display: table-cell;
     margin-bottom: 60px;
 }
 
@@ -145,6 +145,11 @@ footer {
 
 .btn-secondary {
     background: #666;
+}
+
+.btn-warning {
+    background: #e58f97;
+    color: black;
 }
 
 .btn-small {

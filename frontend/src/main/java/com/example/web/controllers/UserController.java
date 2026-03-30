@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public String create(@Valid @ModelAttribute ("user") UserDto dto, BindingResult result) {
+    public String create(@Valid @ModelAttribute("user") UserDto dto, BindingResult result) {
         if (result.hasErrors()) {
             return "user-new";
         }
@@ -53,4 +53,26 @@ public class UserController {
         userService.deleteById(id);
         return "redirect:/users";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editForm(@PathVariable Long id, Model model) {
+        User user = userService.findById(id); // Il faudra créer findById dans le service
+        UserDto dto = new UserDto();
+        dto.setUsername(user.getUsername());
+        dto.setEmail(user.getEmail());
+        dto.setRole(user.getRole());
+        // On laisse le password vide dans le DTO pour la sécurité
+
+        model.addAttribute("user", dto);
+        model.addAttribute("userId", id);
+        return "user-edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable Long id, @ModelAttribute("user") UserDto dto) {
+        userService.updateUser(id, dto);
+        return "redirect:/users";
+    }
+
+
 }

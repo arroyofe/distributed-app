@@ -6,12 +6,16 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.GenerationTime;
+import org.hibernate.annotations.Generated;
+
 @Data
 @Entity
 @Table(name = "users")
 public class User {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true) // Garantiza la unicidad del username al ser la clave id
@@ -24,6 +28,14 @@ public class User {
 
     private String role;
 
-    @Column(name = "created_at")
+    // Para created_at (Solamente se usa a la creaciónn)
+    @Column(name = "created_at", insertable = false, updatable = false)
+    @Generated(org.hibernate.annotations.GenerationTime.INSERT) // Plus simple
     private LocalDateTime createdAt;
+
+    // Para updated_at (Creación y acutalización)
+    @Column(name = "updated_at", insertable = false, updatable = false)
+    @Generated(org.hibernate.annotations.GenerationTime.ALWAYS) // Signifie Insert + Update
+    private LocalDateTime updatedAt;
+
 }
