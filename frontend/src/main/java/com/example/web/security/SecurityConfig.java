@@ -17,6 +17,9 @@ import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+    private static final String ROLE_ADMIN = "ADMIN";
+    private static final String ROLE_DEV = "DEV";
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -26,7 +29,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // PUBLICO
                         .requestMatchers("/", "/home", "/index", "/login", "/error/**").permitAll()
-                        .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**", "/videos/**", "/docs/**", "/js/**"
+                        ).permitAll()
 
                         // ITEMS PUBLICO
                         .requestMatchers(HttpMethod.GET, "/items", "/items/*").permitAll()
@@ -35,21 +39,21 @@ public class SecurityConfig {
                         .requestMatchers("/items/new", "/items/edit/**", "/items/delete/**").authenticated()
 
                         // USERS ADMIN
-                        .requestMatchers("/users/**").hasRole("ADMIN")
+                        .requestMatchers("/users/**").hasRole(ROLE_ADMIN)
 
                         // DEV + ADMIN
-                        .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
+                        .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole(ROLE_DEV, ROLE_ADMIN)
 
                         // POKEMON LISTA (Consulta)
                         .requestMatchers(HttpMethod.GET, "/pokemons").authenticated()
 
                         // GESTION POKEMON (Todas las acciones previtas en /pokemons/admin/**)
-                        .requestMatchers("/pokemons/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/pokemons/admin/**").hasRole(ROLE_ADMIN)
 
                         // GESTION POKEMON - ACCIONES específicas (POST para add/edit/delete)
-                        .requestMatchers("/pokemons/new/**").hasRole("ADMIN")
-                        .requestMatchers("/pokemons/edit/**").hasRole("ADMIN")
-                        .requestMatchers("/pokemons/delete/**").hasRole("ADMIN")
+                        .requestMatchers("/pokemons/new/**").hasRole(ROLE_ADMIN)
+                        .requestMatchers("/pokemons/edit/**").hasRole(ROLE_ADMIN)
+                        .requestMatchers("/pokemons/delete/**").hasRole(ROLE_ADMIN)
 
                         // EL RESTO DE CASOS→ autentificación
                         .anyRequest().authenticated()
@@ -72,7 +76,7 @@ public class SecurityConfig {
         return http.build();
     }
 
-    //Gestion del dialecto Spring
+    //Gestión del dialecto Spring
     @Bean
     public SpringSecurityDialect securityDialect() {
         return new SpringSecurityDialect();

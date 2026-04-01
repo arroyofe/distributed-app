@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30d69f15-6cfd-492f-81ff-12ee352568bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py1/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,12 +79,13 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "rearrange.code.on.save": "true",
@@ -163,6 +151,9 @@
       <workItem from="1774763502980" duration="12384000" />
       <workItem from="1774780245828" duration="19699000" />
       <workItem from="1774850235367" duration="21800000" />
+      <workItem from="1775054149678" duration="97000" />
+      <workItem from="1775054259670" duration="693000" />
+      <workItem from="1775067652851" duration="1589000" />
     </task>
     <servers />
   </component>

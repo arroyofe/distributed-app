@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
-
+      xmlns:th="http://www.thymeleaf.org">
 <body>
 <main layout:fragment="content">
     <span id="pageTitleSetter"
-          th:with="pageName='Inicio'"
-          style="display:none;"></span>
+          style="display:none;"
+          th:with="pageName='Inicio'"></span>
 
 
     <h2 style="color:#003366;">Bienvenido a Sistemas Distribuidos de la EPI de la UBU</h2>
@@ -25,7 +24,63 @@
             📦 Ver la lista de opciones
         </a>
     </div>
+    <div class="container mt-4">
 
+        <div class="row align-items-center">
+
+            <!-- Columna izquierda : texto + PDF -->
+            <div class="col-md-6 mb-4">
+                <h2 class="fw-bold">Presentación sucinta del proyecto.</h2>
+                <p>
+                    Este proyecto contiene un frontend, un backend, ambas gestionadas con java
+                    una base de datos Mysql con datos de usuarios,items y pokemones,
+                    y dos aplicaciones python: una de gestión de pokemones y la otra hace de puente
+                    con frontend para la gestion de items.
+                    Se ha utilizado springboot, thymleaf, nginx, bootstrap para la realización del proyecto.
+                </p>
+                <p>
+                    El documento adjunto explica cómo se ha desarrollado el proyecto.
+                </p>
+
+                <!-- Enlace al pdf -->
+                <a class="btn btn-primary" target="_blank" th:href="@{/docs/documentacionproyecto.pdf}">
+                    📄 Ver el documento
+                </a>
+            </div>
+
+            <!-- Columna derecha : video -->
+            <div class="col-md-6 text-center">
+
+                <video class="w-100"
+                       controls
+                       id="videoDemo"
+                       poster="/images/preview.jpg">
+                    <source th:src="@{/videos/demo.mp4}" type="video/mp4">
+                </video>
+
+                <script>
+                    const video = document.getElementById("videoDemo");
+
+                    // Pone en pausa al cambiar de pestaña
+                    document.addEventListener("visibilitychange", function () {
+                        if (document.hidden) {
+                            video.pause();
+                        }
+                    });
+
+                    // Lanza el víeo al hacer click en la image preview
+                    video.addEventListener("click", function () {
+                        if (video.paused) {
+                            video.play();
+                        }
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
 </main>
 </body>
 </html>

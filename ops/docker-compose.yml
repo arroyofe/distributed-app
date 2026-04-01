@@ -1,13 +1,14 @@
 # docker-compose
 services:
+
   db:
     image: mysql:8.0.36
     environment:
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: appuser
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpass}
-      TZ: UTC
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: ${TZ}
     ports:
       - "3306:3306"
     healthcheck:
@@ -16,20 +17,18 @@ services:
       timeout: 5s
       retries: 10
       start_period: 15s
-
     volumes:
       - dbdata:/var/lib/mysql
 
-  # -- SONAR (desactivado durante test provisionales para disminuir carga --
-  #  sonarqube:
-  #   image: sonarqube:10.6-community
-  #    environment:
-  #      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
-  #    ports:
-  #      - "9000:9000"
-  #    volumes:
-  #      - sonar_data:/opt/sonarqube/data
-  #      - sonar_extensions:/opt/sonarqube/extensions
+  sonarqube:
+    image: sonarqube:10.6-community
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_extensions:/opt/sonarqube/extensions
 
   backend:
     build:
@@ -37,9 +36,9 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       PY2_BASE_URL: http://py2:5000
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8
-      SPRING_DATASOURCE_USERNAME: appuser
-      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       SERVER_PORT: 8080
     depends_on:
       db:
@@ -49,7 +48,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
-      start_period: 60s # Deja 60 segundos al arranque para la configuración
+      start_period: 60s
     ports:
       - "8080:8080"
 
@@ -60,7 +59,6 @@ services:
     environment:
       SERVER_PORT: 8081
       BACKEND_BASE_URL: http://backend:8080
-      # TEST :
       JAVA_TOOL_OPTIONS: "-Djava.security.egd=file:/dev/./urandom"
       SPRING_JPA_OPEN_IN_VIEW: "false"
     depends_on:
@@ -71,12 +69,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
-      start_period: 60s # Deja 60 segundos al arranque para la configuración
+      start_period: 60s
     ports:
       - "8081:8081"
 
   py1:
-
     build:
       context: ../py1
       dockerfile: Dockerfile
@@ -87,14 +84,13 @@ services:
         condition: service_healthy
     environment:
       FLASK_ENV: production
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_NAME: appdb
-      DB_USER: appuser
-      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${PY_DB_HOST}
+      DB_PORT: ${PY_DB_PORT}
+      DB_NAME: ${PY_DB_NAME}
+      DB_USER: ${PY_DB_USER}
+      DB_PASSWORD: ${PY_DB_PASSWORD}
     ports:
       - "5001:5000"
-
     healthcheck:
       test: [ "CMD", "python3", "-c", "import urllib.request,sys; urllib.request.urlopen('http://localhost:5000/health').read(); sys.exit(0)" ]
       interval: 10s
@@ -108,11 +104,11 @@ services:
       dockerfile: Dockerfile
     environment:
       FLASK_ENV: production
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_NAME: appdb
-      DB_USER: appuser
-      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${PY_DB_HOST}
+      DB_PORT: ${PY_DB_PORT}
+      DB_NAME: ${PY_DB_NAME}
+      DB_USER: ${PY_DB_USER}
+      DB_PASSWORD: ${PY_DB_PASSWORD}
     depends_on:
       db:
         condition: service_healthy

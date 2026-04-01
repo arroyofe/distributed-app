@@ -1,26 +1,33 @@
-/* ===== GLOBAL ===== */
+/* ============================
+   GLOBAL
+============================ */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: burlywood;
 }
 
-/* ===== HEADER ===== */
+/* ============================
+   HEADER
+============================ */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 120px; /* Tamaño en altura fijo */
+    height: 120px;
     padding: 0 20px;
     background-color: #003366;
     color: white;
 }
 
-.header-left, .header-center, .header-right {
-    flex: 1; /* Cada parte usa el mismo espacio */
-    display: flex; /* Permite la flexibilidas de las partes */
-    align-items: center; /* Centra verticalmente los contenidos */
-    justify-content: center; /* Centra horizontalmente los contenidos */
+.header-left,
+.header-center,
+.header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-center {
@@ -40,37 +47,35 @@ body {
 }
 
 .logo {
-    width: 20%; /* Ajustando al 20% del contenedor */
-    max-width: 80px; /* Limitar el tamaño a un ancho máximo */
-    height: auto; /* Mantener proporciones */
+    width: 20%;
+    max-width: 80px;
+    height: auto;
 }
 
-/* ===== MAIN CONTENT ===== */
+/* ============================
+   MAIN CONTENT
+============================ */
 .content {
     min-height: calc(100vh - 180px); /* 120 header + 60 footer */
     padding: 20px;
 }
 
-.main {
-    display: table-cell;
-    margin-bottom: 60px;
-}
-
-/* ===== FOOTER ===== */
+/* ============================
+   FOOTER
+============================ */
 footer {
-    display: flex; /* Para usar flexbox */
+    display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
-    height: 60px;
     padding: 10px 20px;
     font-size: 14px;
-    position: fixed; /* fixed para fijar en la parte inferior de la ventana */
-    bottom: 0;
-    width: 100%; /* Asegura de que ocupe toda la anchura */
 }
 
-.footer-left, .footer-center, .footer-right {
+
+.footer-left,
+.footer-center,
+.footer-right {
     flex: 1;
 }
 
@@ -91,6 +96,9 @@ footer {
     text-decoration: underline;
 }
 
+/* ============================
+   FORM CARDS
+============================ */
 .form-card {
     width: 400px;
     background: #fff;
@@ -100,7 +108,8 @@ footer {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.input {
+/* Inputs personalizados */
+.my-input {
     width: 100%;
     padding: 8px;
     margin-top: 6px;
@@ -109,50 +118,54 @@ footer {
     border-radius: 4px;
 }
 
-.table {
+/* =======================================
+   TABLES (evita conflictos con Bootstrap)
+========================================== */
+.my-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.table th {
+.my-table th {
     background: #003366;
     color: white;
 }
 
-.table th, .table td {
+.my-table th,
+.my-table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
 
-.btn {
+/* ========================================
+   BOTONES (evita conflictos con Bootstrap)
+=========================================== */
+.my-btn {
     padding: 8px 14px;
     text-decoration: none;
     border-radius: 5px;
     color: white;
+    display: inline-block;
 }
 
-.btn-primary {
+.my-btn-primary {
     background: #0066cc;
 }
 
-.btn-warning {
-    background: #ff9800;
-}
-
-.btn-danger {
-    background: #d9534f;
-}
-
-.btn-secondary {
-    background: #666;
-}
-
-.btn-warning {
+.my-btn-warning {
     background: #e58f97;
     color: black;
 }
 
-.btn-small {
+.my-btn-danger {
+    background: #d9534f;
+}
+
+.my-btn-secondary {
+    background: #666;
+}
+
+.my-btn-small {
     padding: 4px 9px;
     font-size: 13px;
 }
