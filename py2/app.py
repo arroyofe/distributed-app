@@ -8,6 +8,9 @@ from models import Item
 
 app = Flask(__name__)
 
+# ====== constante para Sonar =======
+APY = "/api3"
+
 
 # ========== INTERFACE HTML ==========
 
@@ -30,7 +33,7 @@ def web_new_item_submit():
         it = Item(name=data["name"], description=data.get("description"))
         s.add(it)
         s.commit()
-        return redirect("/api3" + url_for("web_list_items"))
+        return redirect(APY + url_for("web_list_items"))
 
 
 @app.get("/items/web/<int:item_id>/edit")
@@ -57,7 +60,7 @@ def web_delete_item(item_id):
         it = s.get(Item, item_id)
         s.delete(it)
         s.commit()
-        return redirect("/api3" + url_for("web_list_items"))
+        return redirect(APY + url_for("web_list_items"))
 
 
 # --- HEALTHCHECK ---
@@ -144,10 +147,3 @@ def delete_item(item_id: int):
         s.commit()
 
         return {"status": "deleted"}, 200
-
-
-# --- RUN
-# Dejado para ser ejecutado directamente por  comando pytho app.py si fuera necesario
-# Con guicorn no es necesario---
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)

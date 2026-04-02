@@ -4,129 +4,89 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30d69f15-6cfd-492f-81ff-12ee352568bd" name="Changes" comment="">
+    <list default="true" id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py1/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/appbis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/test/test_health.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/hello.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/templates/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Python Script" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="3BOVyEZSZYQp0u8bu1xvXj6jJDq" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="3BnZE3rO2cUwkH7opFERxh4xsUr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GenerateAdminPassword.executor": "Run",
-    "Application.PasswordGenerator.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Maven.backend [clean].executor": "Run",
-    "Maven.backend [install].executor": "Run",
-    "Maven.backend [package].executor": "Run",
-    "Maven.backend [verify].executor": "Run",
-    "Maven.distributed-app [clean].executor": "Run",
-    "Maven.distributed-app [install].executor": "Run",
-    "Maven.frontend [clean].executor": "Run",
-    "Maven.frontend [install] (1).executor": "Run",
-    "Maven.frontend [install].executor": "Run",
-    "Maven.frontend [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "SQL Dialects",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect": [
-      "MySQL"
-    ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02\Pract02SD2026\distributed-app\backend\src\main\resources\db\migration" />
-      <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02\Pract02SD2026\distributed-app\backend\db" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.AppApplication">
-    <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.app.AppApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FrontendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="frontend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.web.FrontendApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -137,31 +97,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="30d69f15-6cfd-492f-81ff-12ee352568bd" name="Changes" comment="" />
-      <created>1774360358319</created>
+      <changelist id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="" />
+      <created>1775126682120</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1774360358319</updated>
-      <workItem from="1774360359799" duration="51496000" />
-      <workItem from="1774514275042" duration="620000" />
-      <workItem from="1774515190358" duration="28004000" />
-      <workItem from="1774597521460" duration="26352000" />
-      <workItem from="1774695463090" duration="18982000" />
-      <workItem from="1774726807295" duration="1047000" />
-      <workItem from="1774763502980" duration="12384000" />
-      <workItem from="1774780245828" duration="19699000" />
-      <workItem from="1774850235367" duration="21800000" />
-      <workItem from="1775054149678" duration="97000" />
-      <workItem from="1775054259670" duration="693000" />
-      <workItem from="1775067652851" duration="1589000" />
+      <updated>1775126682120</updated>
+      <workItem from="1775126683730" duration="2064000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

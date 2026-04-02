@@ -29,15 +29,16 @@ services:
     url: ${PY1_BASE_URL:http://py1:5000}
   py2:
     url: ${PY2_BASE_URL:http://py2:5000}
+    items-url: ${services.py2.url}/items # Valor para Items service (necesitado por Sonar)
 
 depends_on:
   backend:
-    condition: service_healthy # Changé de started à healthy
+    condition: service_healthy
   py1:
     condition: service_healthy
   py2:
     condition: service_healthy
-  
+
 app:
   backendBaseUrl: ${BACKEND_BASE_URL:http://localhost:8080}
 

@@ -125,8 +125,3 @@ def get_pokemon(pokemon_id):
         p = s.get(Pokemon, pokemon_id)
         if not p: return {"error": "Pokemon no encontrado"}, 404
         return jsonify({"id": p.id, "name": p.name, "type": p.type, "level": p.level}), 200
-
-
-# --- MAIN ---
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)

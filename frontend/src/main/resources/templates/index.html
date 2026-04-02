@@ -16,7 +16,7 @@
 
     <div class="row g-4">
 
-        <!-- SECTION: ACCESO GENERAL (Visible por todos) -->
+        <!-- SECTION: ACCESO GENERAL (Visible para el conjunto de usuarios) -->
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-0 border-top border-primary border-4">
                 <div class="card-body text-center py-4">
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <!-- SECTION: POKEMON (Visible por todos autenticados) -->
+        <!-- SECTION: POKEMON (Visible para los usuarios autenticados) -->
         <div class="col-md-6 col-lg-4" sec:authorize="isAuthenticated()">
             <div class="card h-100 shadow-sm border-0 border-top border-info border-4">
                 <div class="card-body text-center py-4">

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      xmlns:th="http://www.thymeleaf.org">
 <body>
 <main layout:fragment="content">
-    <span id="pageTitleSetter"
-          th:with="pageName='Api2 template'"
-          style="display:none;"></span>
+                <span id="pageTitleSetter"
+                      style="display:none;"
+                      th:with="pageName='Api2 template'"></span>
 
-<h1>Respuesta de Py2 via Backend</h1>
-<div th:if="${result}">
-    <pre th:text="${#temporals.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></pre>
-    <pre th:text="${result}"></pre>
-</div>
+    <h1>Respuesta de Py2 via Backend</h1>
+    <div th:if="${result}">
+        <pre th:text="${#temporals.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}"></pre>
+        <pre th:text="${result}"></pre>
+    </div>
+</main>
 <main th:if="${error}">
     <strong>Erreur:</strong>
     <pre th:text="${error}"></pre>

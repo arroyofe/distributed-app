@@ -13,7 +13,7 @@
           style="display:none;"
           th:with="pageName='Lista de items'"></span>
 
-    <h2 th:text="${pageName} ?: 'Liste des items'"></h2>
+    <h2 th:text="${pageName} ?: 'Liste des items'">Lista</h2>
     <!-- Provisional control-->
     <div sec:authorize="isAuthenticated()">
         Usuario : <span sec:authentication="name"></span> <br/>

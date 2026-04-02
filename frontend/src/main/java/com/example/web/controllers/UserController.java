@@ -2,11 +2,9 @@ package com.example.web.controllers;
 
 import com.example.web.dto.UserDto;
 import com.example.web.models.User;
-import com.example.web.repositories.UserRepository;
 import com.example.web.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
+    private static final String REDIR_US = "redirect:/users";
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -44,14 +43,14 @@ public class UserController {
         }
 
         userService.createUser(dto);
-        return "redirect:/users";
+        return REDIR_US;
 
     }
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         userService.deleteById(id);
-        return "redirect:/users";
+        return REDIR_US;
     }
 
     @GetMapping("/edit/{id}")
@@ -71,7 +70,7 @@ public class UserController {
     @PostMapping("/edit/{id}")
     public String update(@PathVariable Long id, @ModelAttribute("user") UserDto dto) {
         userService.updateUser(id, dto);
-        return "redirect:/users";
+        return REDIR_US;
     }
 
 

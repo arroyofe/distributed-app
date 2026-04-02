@@ -19,12 +19,12 @@
 
         <!-- Thymeleaf gestiona CSRF automáticamente gracias a th:action (en test CSRF está disable -->
 
-        <label>Nombre :</label>
+        <label for="name">Nombre :</label>
         <!-- Utilisation de th:field pour lier au DTO -->
-        <input class="input" required th:field="*{name}" type="text">
+        <input class="input" id="name" required th:field="*{name}" type="text">
 
-        <label>Descripción :</label>
-        <textarea class="input" th:field="*{description}"></textarea>
+        <label for="description">Descripción :</label>
+        <textarea class="input" id="description" th:field="*{description}"></textarea>
 
         <button class="btn btn-primary" style="margin-top:15px;" type="submit">
             Crear

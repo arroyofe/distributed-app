@@ -1,49 +1,86 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title> Item nuevo</title>
+    <meta charset="UTF-8">
+    <title> Item nuevo</title>
 
-  <style>
-    body { font-family: Arial; background-color: #fafafa; padding: 40px; }
-    .container {
-      width: 450px; margin: auto; background: white;
-      padding: 25px; border-radius: 8px; box-shadow: 0 0 10px #ccc;
-    }
-    h1 { text-align: center; color: #333; }
-    label { font-weight: bold; display: block; margin-top: 15px; }
-    input[type="text"], textarea {
-      width: 100%; padding: 8px; margin-top: 6px;
-      border: 1px solid #ccc; border-radius: 4px;
-    }
-    button {
-      margin-top: 20px; width: 100%; padding: 10px;
-      color: white; background-color: #0066cc;
-      border: none; border-radius: 5px; font-size: 15px;
-    }
-    button:hover { background-color: #004c99; }
-    a { display: block; margin-top: 15px; text-align: center; color: #0066cc; }
-  </style>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #fafafa;
+            padding: 40px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #0066cc;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #004c99;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #0066cc;
+        }
+    </style>
 
 </head>
 
 <body>
 <div class="container">
 
-  <h1>Crear un item</h1>
+    <h1>Crear un item</h1>
 
-  <form method="post" action="/api3{{ url_for('web_new_item_submit') }}">
+    <form action="/api3{{ url_for('web_new_item_submit') }}" method="post">
 
-    <label>Nombre :</label>
-    <input type="text" name="name" required>
+        <label for="name">Nombre :</label>
+        <input id="name" name="name" required type="text">
 
-    <label>Descripción :</label>
-    <textarea name="description"></textarea>
+        <label for="description">Descripción :</label>
+        <textarea id="description" name="description"></textarea>
 
-    <button type="submit">Créer</button>
-  </form>
+        <button type="submit">Créer</button>
+    </form>
 
-  <a href="/api3{{ url_for('web_list_items') }}">← Volver a la lista</a>
+    <a href="/api3{{ url_for('web_list_items') }}">← Volver a la lista</a>
 
 </div>
 </body>

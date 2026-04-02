@@ -3,11 +3,12 @@ package com.example.web.services;
 import com.example.web.dto.UserDto;
 import com.example.web.models.User;
 import com.example.web.repositories.UserRepository;
-import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -49,7 +50,10 @@ public class UserService {
 
         // 3. Se verifica si el admin actual intenta suprimirse a sí mismo
         if (currentUser.getId().equals(id)) {
-            throw new RuntimeException("Auto-eliminación prohibida : No puede suprimir su propia cuenta de admin.");
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "Auto-eliminación prohibida : No puede suprimir su propia cuenta de admin.");
+
         }
         repo.deleteById(id);
     }

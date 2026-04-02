@@ -1,56 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html lang='es'
+      layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
 
-      layout:decorate="~{layout}">
+      xmlns:th="http://www.thymeleaf.org">
 
 
 <body>
 
-    <!-- Título de la página -->
-    <main layout:fragment="content">
+<!-- Título de la página -->
+<main layout:fragment="content">
         <span id="pageTitleSetter"
-              th:with="pageName='Login'"
-              style="display:none;"></span>
+              style="display:none;"
+              th:with="pageName='Login'"></span>
 
 
-        <div style="max-width:400px; margin:60px auto; padding:30px; border-radius:12px;
+    <div style="max-width:400px; margin:60px auto; padding:30px; border-radius:12px;
                 background:#ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
 
         <h2 style="color:#003366; text-align:center; margin-bottom:25px;">Identification</h2>
 
         <!-- Mensaje de ERROR si ee login no funciona -->
-        <div th:if="${param.error}"
-             style="background:#f8d7da; color:#721c24; padding:10px; border-radius:5px; margin-bottom:20px; font-size:0.9em; text-align:center;">
+        <div style="background:#f8d7da; color:#721c24; padding:10px; border-radius:5px; margin-bottom:20px; font-size:0.9em; text-align:center;"
+             th:if="${param.error}">
             Nombre de usuario y/o contraseña incorrectos.
         </div>
 
         <!-- Mensaje de LOGOUT bien acabado -->
-        <div th:if="${param.logout}"
-             style="background:#d4edda; color:#155724; padding:10px; border-radius:5px; margin-bottom:20px; font-size:0.9em; text-align:center;">
+        <div style="background:#d4edda; color:#155724; padding:10px; border-radius:5px; margin-bottom:20px; font-size:0.9em; text-align:center;"
+             th:if="${param.logout}">
             Se ha desconectado correctamente.
         </div>
 
-        <form th:action="@{/login}" method="post">
+        <form method="post" th:action="@{/login}">
             <div style="margin-bottom:15px; text-align:left;">
-                <label style="font-weight:bold; color:#555;">Utilisateur :</label>
-                <input type="text" name="username" required autofocus
-                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;">
+                <label for="username" style="font-weight:bold; color:#555;">Utilisateur :</label>
+                <input autofocus id="username" name="username" required
+                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;"
+                       type="text">
             </div>
 
             <div style="margin-bottom:25px; text-align:left;">
-                <label style="font-weight:bold; color:#555;">Mot de passe :</label>
-                <input type="password" name="password" required
-                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;">
+                <label for="password" style="font-weight:bold; color:#555;">Mot de passe :</label>
+                <input id="password" name="password" required
+                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;"
+                       type="password">
             </div>
 
-            <!-- Token CSRF (no es necesario en principio pero se indica por sécuridad)
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            -->
-            <button type="submit"
-                    style="width:100%; padding:12px; background:#003366; color:white;
-                           border:none; border-radius:6px; font-size:16px; font-weight:bold; cursor:pointer; transition: background 0.3s;">
+            <button style="width:100%; padding:12px; background:#003366; color:white;
+                           border:none; border-radius:6px; font-size:16px; font-weight:bold; cursor:pointer; transition: background 0.3s;"
+                    type="submit">
                 Conectarse
             </button>
         </form>

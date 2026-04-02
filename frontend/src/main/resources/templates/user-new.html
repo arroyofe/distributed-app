@@ -13,23 +13,17 @@
     <h2>Crear un nuevo usuario</h2>
 
     <form class="form-card" method="post" th:action="@{/users/new}">
-        <!-- Bloque csrf comentado a activar si al pasar a producción
-        se pasa a usar la funcionalidad actualmente en SecurityConfig esta disable--
-        <input th:name="${_csrf.parameterName}"
-               th:value="${_csrf.token}"
-               type="hidden"/>
-        -->
-        <label>Nombre de usuario :</label>
-        <input class="input" name="username" required type="text">
+        <label for="username">Nombre de usuario :</label>
+        <input class="input" id="username" name="username" required type="text">
 
-        <label>email :</label>
-        <input class="input" name="email" required type="text">
+        <label for="email">email :</label>
+        <input class="input" id="email" name="email" required type="text">
 
-        <label>Contraseña :</label>
-        <input class="input" name="password" required type="password">
+        <label for="password">Contraseña :</label>
+        <input class="input" id="password" name="password" required type="password">
 
-        <label>Rol :</label>
-        <select class="input" name="role">
+        <label for="role">Rol :</label>
+        <select class="input" id="role" name="role">
             <option value="ROLE_ADMIN">ADMIN</option>
             <option value="ROLE_USER">USER</option>
             <option value="ROLE_DEV">DEV</option>

@@ -39,12 +39,6 @@
                     <a class="btn btn-warning btn-sm" th:href="@{/users/edit/{id}(id=${u.id})}">Modifier</a>
                     <form method="post" th:action="@{/users/delete/{id}(id=${u.id})}"
                           th:if="${#authentication.name != u.username}">
-                        <!-- Bloque comentado, en SecurityConfig csrf en estado disable
-                        quitar comentario si en producción se pasa a permitir csrf--
-                        <input th:name="${_csrf.parameterName}"
-                               th:value="${_csrf.token}"
-                               type="hidden"/>
-                        -->
                         <!-- Si el usuario es el propio admin, no se muestra el botón de suprimir -->
                         <button class="btn btn-danger btn-sm"
                                 onclick="return confirm('¿Eliminar este usuario?');"

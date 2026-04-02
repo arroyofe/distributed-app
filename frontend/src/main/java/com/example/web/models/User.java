@@ -6,9 +6,6 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.GenerationTime;
-import org.hibernate.annotations.Generated;
-
 @Data
 @Entity
 @Table(name = "users")
@@ -30,12 +27,10 @@ public class User {
 
     // Para created_at (Solamente se usa a la creaciónn)
     @Column(name = "created_at", insertable = false, updatable = false)
-    @Generated(org.hibernate.annotations.GenerationTime.INSERT) // Plus simple
     private LocalDateTime createdAt;
 
     // Para updated_at (Creación y acutalización)
     @Column(name = "updated_at", insertable = false, updatable = false)
-    @Generated(org.hibernate.annotations.GenerationTime.ALWAYS) // Signifie Insert + Update
     private LocalDateTime updatedAt;
 
 }

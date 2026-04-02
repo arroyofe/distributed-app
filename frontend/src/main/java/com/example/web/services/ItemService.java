@@ -12,11 +12,9 @@ import java.util.List;
 public class ItemService {
 
     private final RestTemplate rest = new RestTemplate();
-    // private final String BASE_URL = "http://localhost/api3/items"; Antiguo nuevo abajo a borrar si fucniona el de abajo
-    // Nginx gestiona los flujos
-    //private final String BASE_URL = "http://nginx/api3/items";
-    // nouvelle version communication directe con py2
-    @Value("${services.py2.url}/items")
+
+    // Comunicación directa con py2, Nginx bloquea
+    @Value("${services.py2.items-url}")
     private String py2Url;
 
     public List<ItemDto> findAll() {

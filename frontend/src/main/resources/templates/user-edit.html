@@ -10,18 +10,18 @@
           style="display:none;"
           th:with="pageName='Edicion Usuarios'"></span>
     <form class="form-card" method="post" th:action="@{/users/edit/{id}(id=${userId})}">
-        <label>Usuario :</label>
-        <input class="input" name="username" th:value="${user.username}" type="text">
+        <label for="username">Usuario :</label>
+        <input class="input" id="username" name="username" th:value="${user.username}" type="text">
 
-        <label>Email :</label>
-        <input class="input" name="email" th:value="${user.email}" type="email">
+        <label for="email">Email :</label>
+        <input class="input" id="email" name="email" th:value="${user.email}" type="email">
 
-        <label>Contraseñ :</label>
-        <input class="input" name="password" type="password">
+        <label for="password">Contraseñ :</label>
+        <input class="input" id="password" name="password" type="password">
         <small style="color: gray;">Laissez vide pour ne pas modifier le mot de passe actuel.</small>
 
-        <label>Rol :</label>
-        <select class="input" name="role">
+        <label for="role">Rol :</label>
+        <select class="input" id="role" name="role">
             <option th:selected="${user.role == 'ROLE_ADMIN'}" value="ROLE_ADMIN">ADMIN</option>
             <option th:selected="${user.role == 'ROLE_USER'}" value="ROLE_USER">USER</option>
             <option th:selected="${user.role == 'ROLE_DEV'}" value="ROLE_DEV">DEV</option>

@@ -19,7 +19,7 @@ public class ItemController {
     }
 
     // ------------------------------------------------------------
-    // 1) LISTA PUBLIQCQ DE LOS ITEMS  → accesible à todos
+    // 1) LISTA PUBLICA DE LOS ITEMS  → accesible à todos
     // ------------------------------------------------------------
     @GetMapping("")
     public String list(Model m) {

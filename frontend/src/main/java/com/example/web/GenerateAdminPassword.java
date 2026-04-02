@@ -1,12 +1,13 @@
 package com.example.web;
 
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@Slf4j
 public class GenerateAdminPassword {
-    public static void main(String[] args) {
+    static void main() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String hash = encoder.encode("admin");
-        System.out.println("Hash admin = " + hash);
+        String hash = encoder.encode("");
+        log.info("Hash admin = {}", hash);
     }
 }

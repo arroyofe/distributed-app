@@ -14,14 +14,14 @@
     <form class="form-card" method="post" th:action="@{'/pokemons/edit/' + ${pokemon.id}}" th:object="${pokemon}">
         <input th:field="*{id}" type="hidden">
 
-        <label>Nom :</label>
-        <input class="form-control" required th:field="*{name}" type="text">
+        <label for="name">Nom :</label>
+        <input class="form-control" id="name" required th:field="*{name}" type="text">
 
-        <label>Type :</label>
-        <input class="form-control" required th:field="*{type}" type="text">
+        <label for="type">Type :</label>
+        <input class="form-control" id="type" required th:field="*{type}" type="text">
 
-        <label>Niveau :</label>
-        <input class="form-control" required th:field="*{level}" type="number">
+        <label for="level">Niveau :</label>
+        <input class="form-control" id="level" required th:field="*{level}" type="number">
 
         <button class="btn btn-primary mt-3" type="submit">Enregistrer les modifications</button>
         <a class="btn btn-secondary mt-3" th:href="@{/pokemons/admin}">Annuler</a>

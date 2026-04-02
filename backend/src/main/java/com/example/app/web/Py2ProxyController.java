@@ -1,6 +1,8 @@
 package com.example.app.web;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
@@ -42,10 +44,14 @@ public class Py2ProxyController {
         } catch (Exception webClientException) {
             // --- Fallback con RestTemplate ---
             try {
-                ResponseEntity<Map> resp = restTemplate.getForEntity(
+                ResponseEntity<Map<String, Object>> resp = restTemplate.exchange(
                         py2BaseUrl + "/api/hello",
-                        Map.class
+                        HttpMethod.GET,
+                        null,
+                        new ParameterizedTypeReference<Map<String, Object>>() {
+                        }
                 );
+
                 return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
 
             } catch (RestClientException restEx) {

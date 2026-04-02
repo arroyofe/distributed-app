@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" layout:decorate="~{layout}"
+<html lang="es" layout:decorate="~{layout}"
       xmlns:layout="http://ultraq.net.nz"
       xmlns:th="http://thymeleaf.org">
 <body>
@@ -10,13 +10,13 @@
     <div class="card mb-4 p-3 shadow-sm">
         <form class="row g-3" method="post" th:action="@{/pokemons/new}">
             <div class="col-md-4">
-                <input class="form-control" name="name" placeholder="Nom (ex: Salameche)" required type="text">
+                <input class="form-control" name="name" placeholder="Nombre (ex: Salameche)" required type="text">
             </div>
             <div class="col-md-3">
-                <input class="form-control" name="type" placeholder="Type" required type="text">
+                <input class="form-control" name="type" placeholder="Tipo" required type="text">
             </div>
             <div class="col-md-2">
-                <input class="form-control" name="level" placeholder="Niveau" type="number" value="1">
+                <input class="form-control" name="level" placeholder="Nivel" type="number" value="1">
             </div>
             <div class="col-md-3">
                 <button class="btn btn-warning w-100" type="submit">Añadir el Pokémon</button>
@@ -28,49 +28,113 @@
     <table class="table table-hover align-middle">
         <thead class="table-dark">
         <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Nivel</th>
-            <th>Acciones</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nivel</th>
+            <th class="text-center" scope="col">Acciones</th>
         </tr>
         </thead>
+
         <tbody>
         <tr th:each="p : ${pokemons}">
-            <!-- 1. Colonne ID -->
-            <td th:text="${p.id}"></td>
+            <td th th:scope="row" th:text="${p.id}"></td>
 
-            <!-- 2. Formulaire de Modification (englobe les colonnes de saisie) -->
-            <form method="post" th:action="@{/pokemons/edit/{id}(id=${p.id})}">
+            <!-- Formulario de modificación -->
+            <form class="contents"
+                  method="post"
+                  th:action="@{/pokemons/edit/{id}(id=${p.id})}">
+
                 <td>
-                    <input class="form-control form-control-sm" name="name" th:value="${p.name}" type="text">
+                    <label class="visually-hidden" for="name" th:for="'name-' + ${p.id}">Nombre</label>
+                    <input class="form-control form-control-sm" id="name"
+                           name="name"
+                           required
+                           th:id="'name-' + ${p.id}"
+                           th:value="${p.name}">
                 </td>
+
                 <td>
-                    <input class="form-control form-control-sm" name="type" th:value="${p.type}" type="text">
+                    <label class="visually-hidden" for="type" th:for="'type-' + ${p.id}">Tipo</label>
+                    <input class="form-control form-control-sm" id="type"
+                           name="type"
+                           required
+                           th:id="'type-' + ${p.id}"
+                           th:value="${p.type}">
                 </td>
+
                 <td>
-                    <input class="form-control form-control-sm" name="level" th:value="${p.level}" type="number">
+                    <label class="visually-hidden" for="level" th:for="'level-' + ${p.id}">Nivel</label>
+                    <input class="form-control form-control-sm" id="level"
+                           min="1"
+                           name="level"
+                           th:id="'level-' + ${p.id}"
+                           th:value="${p.level}"
+                           type="number">
                 </td>
-                <td>
-                    <!-- Cellule unique pour les deux boutons (Modif + Suppr) -->
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-success btn-sm" type="submit">
-                            Modificar
+
+                <td class="text-center">
+                    <div class="d-flex justify-content-center gap-2">
+
+                        <!-- Botón Modificar -->
+                        <button aria-label="Modificar Pokémon"
+                                class="btn btn-success btn-sm"
+                                type="submit">
+                            <i class="bi bi-pencil-square"></i>
                         </button>
-            </form> <!-- Fin du formulaire de modification -->
 
-            <!-- 3. Formulaire de Suppression (DANS la même cellule <td>) -->
-            <form method="post" th:action="@{/pokemons/delete/{id}(id=${p.id})}"
-                  onsubmit="return confirm('¿Suprimir este Pokémon?')">
-                <button class="btn btn-danger btn-sm" type="submit">
-                    Suprimir
-                </button>
+                        <!-- Botón Suprimir (abre la modal de supresión -->
+                        <button aria-label="Suprimir Pokémon"
+                                class="btn btn-danger btn-sm"
+                                data-bs-toggle="modal"
+                                th:data-bs-target="'#deleteModal-' + ${p.id}"
+                                type="button">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </td>
             </form>
+
+            <!-- Modal de supresión -->
+            <div aria-hidden="true"
+                 class="modal fade"
+                 tabindex="-1"
+                 th:id="'deleteModal-' + ${p.id}">
+
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Confirmar eliminación</h5>
+                            <button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            ¿Seguro que quieres eliminar el Pokémon
+                            <strong th:text="${p.name}"></strong>?
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                    type="button">
+                                Cancelar
+                            </button>
+
+                            <form method="post"
+                                  th:action="@{/pokemons/delete/{id}(id=${p.id})}">
+                                <button class="btn btn-danger" type="submit">
+                                    Suprimir
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            </td>
+
         </tr>
         </tbody>
-
     </table>
 </main>
 </body>

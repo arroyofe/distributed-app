@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/pokemons")
 public class PokemonController {
 
+    private static final String REDIR_ADMIN = "redirect:/pokemons/admin";
     private final PokemonService pokemonService;
 
     public PokemonController(PokemonService pokemonService) {
@@ -48,14 +49,14 @@ public class PokemonController {
         newP.setLevel(level);
 
         pokemonService.create(newP); // Llamada al servicio
-        return "redirect:/pokemons/admin";
+        return REDIR_ADMIN;
     }
 
     @PostMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
         pokemonService.delete(id);
-        return "redirect:/pokemons/admin";
+        return REDIR_ADMIN;
     }
 
     // --- PARA VER EL FORMULARIO (GET) ---
@@ -75,7 +76,7 @@ public class PokemonController {
         // IMPORTANT : On utilise un nom de méthode différent (processUpdate au lieu de editForm)
         dto.setId(id);
         pokemonService.update(id, dto);
-        return "redirect:/pokemons/admin";
+        return REDIR_ADMIN;
     }
 
 }

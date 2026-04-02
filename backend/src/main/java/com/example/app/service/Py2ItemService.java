@@ -1,5 +1,6 @@
 package com.example.app.service;
 
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -15,11 +16,12 @@ public class Py2ItemService {
         this.web = py2WebClient;
     }
 
-    public List<Map> getItems() {
+    public List<Map<String, Object>> getItems() {
         return web.get()
                 .uri("/items")
                 .retrieve()
-                .bodyToFlux(Map.class)
+                .bodyToFlux(new ParameterizedTypeReference<Map<String, Object>>() {
+                })
                 .collectList()
                 .block();
     }
