@@ -10,43 +10,53 @@
           th:with="pageName='Errores'"
           style="display:none;"></span>
 
+    <div style="text-align:center; padding: 40px 20px;">
 
-
-        <div style="text-align:center; padding: 40px 20px;">
-
-            <!-- Icono -->
-            <div style="margin-bottom: 20px;">
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none"
-                     stroke="#d9534f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <circle cx="12" cy="16" r="1"></circle>
-                </svg>
-            </div>
-
-            <!-- Título -->
-            <h1 style="font-size: 2.2rem; margin-bottom: 20px;">
-                ¡Ups! Algo salió mal.
-            </h1>
-
-            <!-- Mensaje dinámico -->
-            <p style="font-size: 1.2rem; color: #555;" th:text="'Mensaje: ' + ${msg}"></p>
-
-            <!-- Código de error -->
-            <p style="font-size: 1.5rem; font-weight: bold; margin-top: 30px;"
-            th:text="'Código de error: ' + ${code}"></p>
-
-            <!-- Añadir una línea de separación -->
-            <hr style="margin: 30px auto; width: 60%; opacity: 0.3;">
-
-            <!-- Botones -->
-            <div style="margin-top: 20px;">
-                <a href="/" class="btn btn-primary" style="margin-right: 10px;">Volver al inicio</a>
-                <a href="javascript:history.back()" class="btn btn-secondary">Página anterior</a>
-            </div>
-
+        <div style="margin-bottom: 20px;">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none"
+                 stroke="#d9534f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <circle cx="12" cy="16" r="1"></circle>
+            </svg>
         </div>
 
+        <h1 style="font-size: 2.2rem; margin-bottom: 20px;">
+            ¡Ups! Algo salió mal.
+        </h1>
+
+        <p style="font-size: 1.2rem; color: #555;">
+            Se ha producido un error inesperado.
+        </p>
+
+        <hr style="margin: 30px auto; width: 60%; opacity: 0.3;">
+
+        <!-- Contenedor para los detalles del error -->
+        <div id="errorDetails"
+             style="text-align:left; margin: 40px auto; width: 70%; font-family: monospace;">
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="/" class="btn btn-primary" style="margin-right: 10px;">Volver al inicio</a>
+            <a href="javascript:history.back()" class="btn btn-secondary">Página anterior</a>
+        </div>
+
+    </div>
+
 </main>
+
+<script th:inline="javascript">
+    let errorData = /*[[${errorJson}]]*/ '{}';
+    let error = JSON.parse(errorData);
+
+    document.getElementById("errorDetails").innerHTML = `
+        <h3>Detalles técnicos</h3>
+        <pre><b>Tipo:</b> ${error.type}</pre>
+        <pre><b>Categoría:</b> ${error.category}</pre>
+        <pre><b>Mensaje:</b> ${error.message}</pre>
+        <pre><b>Stacktrace:</b>\n${error.stacktrace}</pre>
+    `;
+</script>
+
 </body>
 </html>

@@ -1,4 +1,10 @@
 spring:
+  mvc:
+    spring.mvc.throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://db:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8}
     username: ${SPRING_DATASOURCE_USERNAME:appuser}

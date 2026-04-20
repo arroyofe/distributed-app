@@ -11,6 +11,21 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Map;
 
+/**
+ * Controlador REST que juega el rol de proxy entre el backend Java y el módulo Python.
+ *
+ * Esta clase expone endpoints que redirigen las peticiones hacia el servicio Python,
+ * utilizando principalmente un {@link WebClient} configurado para ese uso. En caso
+ * de fracaso de la llamada WebClient (error de red, indisponibilidad, timeout), un mecanismo
+ * de repliegue (fallback) basado en {@link RestTemplate} se usa para mejorar la resiliencia
+ * de la intégración.
+ *
+ * El controlador consigue de esta manera encapsuler la lógica de la llamada al módulo Python,
+ * así como ofrecer una API estable incluso en caso de problemas del servicio Python,
+ * lo que permite recibir respuestas de error coherentes en caso de fallo de las llamadas externas.
+ *
+ * La URL de base del módulo Python se inyecta gracias a la propiedad {@code app.py2BaseUrl}.
+ */
 @RestController
 @RequestMapping("/api/py2")
 public class Py2ProxyController {
@@ -19,6 +34,13 @@ public class Py2ProxyController {
     private final RestTemplate restTemplate;
     private final String py2BaseUrl;
 
+    /**
+     * Constructor que inicializa el proxy con los clientes HTTP necesarios y  la URL del servicio Python.
+     *
+     * @param py2WebClient cliente WebClient configurado para communicar con el módulo Python
+     * @param restTemplate cliente RestTemplate utilizado como fallback
+     * @param py2BaseUrl URL de base del servicio Python
+     */
     public Py2ProxyController(
             WebClient py2WebClient,
             RestTemplate restTemplate,
@@ -29,39 +51,4 @@ public class Py2ProxyController {
         this.py2BaseUrl = py2BaseUrl;
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity<Map<String, Object>> hello() {
-        try {
-            // --- Version WebClient (bloqueante) ---
-            Map<String, Object> body = py2WebClient.get()
-                    .uri("/api/hello")
-                    .retrieve()
-                    .bodyToMono(Map.class)
-                    .block();
-
-            return ResponseEntity.ok(body);
-
-        } catch (Exception webClientException) {
-            // --- Fallback con RestTemplate ---
-            try {
-                ResponseEntity<Map<String, Object>> resp = restTemplate.exchange(
-                        py2BaseUrl + "/api/hello",
-                        HttpMethod.GET,
-                        null,
-                        new ParameterizedTypeReference<Map<String, Object>>() {
-                        }
-                );
-
-                return ResponseEntity.status(resp.getStatusCode()).body(resp.getBody());
-
-            } catch (RestClientException restEx) {
-                return ResponseEntity.status(502).body(Map.of(
-                        "status", 502,
-                        "error", "Upstream Error",
-                        "message", restEx.getMessage(),
-                        "path", "/api/py2/hello"
-                ));
-            }
-        }
-    }
 }

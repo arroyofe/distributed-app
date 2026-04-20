@@ -5,61 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ErrorInfoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/utils/ErrorClassifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py2/errors/classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py2/errors/handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7e66ce5b-38ed-4753-b626-e67effa040dd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7e66ce5b-38ed-4753-b626-e67effa040dd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/domain/DemoItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/domain/DemoItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/repo/DemoItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/repo/DemoItemRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py1/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/appbis.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/test/test_health.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/hello.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/templates/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="3BnZE3rO2cUwkH7opFERxh4xsUr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -72,6 +71,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
@@ -80,13 +80,36 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JAVA",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02SD_2026\distributed-app\py2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AppApplication">
+    <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.app.AppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrontendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="frontend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.web.FrontendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -103,6 +126,11 @@
       <option name="presentableId" value="Default" />
       <updated>1775126682120</updated>
       <workItem from="1775126683730" duration="2064000" />
+      <workItem from="1775133502559" duration="1033000" />
+      <workItem from="1775134920094" duration="1527000" />
+      <workItem from="1776581767057" duration="3388000" />
+      <workItem from="1776627518381" duration="3994000" />
+      <workItem from="1776667857593" duration="14208000" />
     </task>
     <servers />
   </component>

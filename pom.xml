@@ -45,13 +45,13 @@
                         <release>${java.version}</release>
                     </configuration>
                 </plugin>
-                <!-- Sonar desactivado provisionalmente
+                <!-- Sonar -->
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.12.0.5063</version>
                 </plugin>
-                -->
+
             </plugins>
         </pluginManagement>
     </build>

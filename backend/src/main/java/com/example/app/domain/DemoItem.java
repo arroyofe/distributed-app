@@ -6,6 +6,10 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+/**
+ * Tabla de demostración, utilizada en la primera fase de desarrollo, NO se utiliza en el
+ * proyecto final presentado.
+ */
 @Entity
 @Table(name = "demo_item",
         indexes = {
