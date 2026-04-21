@@ -39,7 +39,7 @@ def init_db():
 init_db()
 
 
-# --- ROUTES API POUR JAVA ---
+# --- RUTES API PARA JAVA ---
 
 @app.get("/health")
 def health():

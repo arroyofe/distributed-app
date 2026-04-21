@@ -1,6 +1,9 @@
-# docker-compose
+# Orchestration Docker Compose - Sistema Multi-módulo (Java, Python, MySQL, Nginx)
+# Este archivo define la red y el ciclo de vida de los 7 contenedores del proyecto.
+
 services:
 
+  # 1. BASE DE DATOS: Motor MySQL 8.0 compartido por todos los servicios
   db:
     image: mysql:8.0.36
     environment:
@@ -11,6 +14,7 @@ services:
       TZ: ${TZ}
     ports:
       - "3306:3306"
+    # Healthcheck vital: impide que los demás servicios arranquen antes de que MySQL acepte conexiones
     healthcheck:
       test: [ "CMD-SHELL", "mysqladmin ping -h localhost -u $$MYSQL_USER --password=$$MYSQL_PASSWORD --silent" ]
       interval: 5s
@@ -20,6 +24,7 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
+  # 2. CALIDAD DE CÓDIGO: Servidor SonarQube para análisis estático
   sonarqube:
     image: sonarqube:10.6-community
     environment:
@@ -30,6 +35,7 @@ services:
       - sonar_data:/opt/sonarqube/data
       - sonar_extensions:/opt/sonarqube/extensions
 
+  # 3. BACKEND JAVA: Procesa la lógica de negocio principal
   backend:
     build:
       context: ..
@@ -42,7 +48,7 @@ services:
       SERVER_PORT: 8080
     depends_on:
       db:
-        condition: service_healthy
+        condition: service_healthy # Solo arranca cuando la DB está lista
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 30s
@@ -52,6 +58,7 @@ services:
     ports:
       - "8080:8080"
 
+  # 4. FRONTEND JAVA: Interfaz de usuario (Thymeleaf/Spring Boot)
   frontend:
     build:
       context: ..
@@ -59,7 +66,7 @@ services:
     environment:
       SERVER_PORT: 8081
       BACKEND_BASE_URL: http://backend:8080
-      JAVA_TOOL_OPTIONS: "-Djava.security.egd=file:/dev/./urandom"
+      JAVA_TOOL_OPTIONS: "-Djava.security.egd=file:/dev/./urandom" # Mejora el arranque en Linux/Docker
       SPRING_JPA_OPEN_IN_VIEW: "false"
     depends_on:
       backend:
@@ -73,6 +80,7 @@ services:
     ports:
       - "8081:8081"
 
+  # 5. MICROSERVICIO PY1: Gestión de Pokémon (Python Flask)
   py1:
     build:
       context: ../py1
@@ -98,6 +106,7 @@ services:
       retries: 5
       start_period: 5s
 
+  # 6. MICROSERVICIO PY2: Gestión de Items y saludo (Python Flask)
   py2:
     build:
       context: ../py2
@@ -121,10 +130,11 @@ services:
       retries: 5
       start_period: 5s
 
+  # 7. PROXY REVERSO: Nginx como puerta de enlace única
   nginx:
     image: nginx:1.27
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro # Configuración de ruteo
     depends_on:
       frontend:
         condition: service_started
@@ -135,9 +145,10 @@ services:
       py2:
         condition: service_started
     ports:
-      - "80:80"
+      - "80:80" # Punto de acceso principal para el usuario final
 
+# PERSISTENCIA: Definición de volúmenes para que los datos no se pierdan al reiniciar
 volumes:
-  dbdata:
-  sonar_data:
-  sonar_extensions:
+  dbdata:           # Datos de MySQL
+  sonar_data:       # Datos de SonarQube
+  sonar_extensions: # Extensiones/Plugins de Sonar
