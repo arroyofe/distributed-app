@@ -6,41 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/FrontendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/Py2PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/Py2PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/DevController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/DevController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/PokemonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/WebErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/WebErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ErrorInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ErrorInfoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ItemDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/PokemonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/PokemonDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/DbHealthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/DbHealthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/ItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/utils/ErrorClassifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/utils/ErrorClassifier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ops/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ops/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py1/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/py1/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py1/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py2/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/py2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/ops/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +109,7 @@
       <workItem from="1776581767057" duration="3388000" />
       <workItem from="1776627518381" duration="3994000" />
       <workItem from="1776667857593" duration="14208000" />
-      <workItem from="1776713063012" duration="10310000" />
+      <workItem from="1776713063012" duration="12256000" />
     </task>
     <servers />
   </component>
