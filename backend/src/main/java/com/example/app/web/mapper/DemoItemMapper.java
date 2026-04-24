@@ -17,6 +17,15 @@ import com.example.app.dto.DemoItemCreateUpdateDto;
  * No tiene mecanismos lágicos, solamente se limit a la transformación de datos.
  */
 public class DemoItemMapper {
+
+    /**
+     * Constructor privado para impedir la instanciación.
+     * Esta clase es un utilitario puramente estático.
+     */
+    private DemoItemMapper() {
+        // Queda vacío a propósito para evitar la instanciación
+    }
+
     /**
      * Convierte una entidad {@link DemoItem} en {@link DemoItemDto} destinada a
      * la exposición a través de la API.

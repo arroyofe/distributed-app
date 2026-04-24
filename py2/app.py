@@ -147,3 +147,8 @@ def delete_item(item_id: int):
         s.commit()
 
         return {"status": "deleted"}, 200
+
+# --- PREDICT (llamada por Spring Boot) ---
+@app.get("/predict")
+def predict():
+    return {"result": 42}, 200

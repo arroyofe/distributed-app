@@ -7,8 +7,8 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 /**
- * Tabla de demostración, utilizada en la primera fase de desarrollo, NO se utiliza en el
- * proyecto final presentado.
+ * Tabla de demostración, Elemento almacenado en una base de datos. Esta entidad
+ * muestr una estructura simple con gestión de fechas de creación y actualización.
  */
 @Entity
 @Table(name = "demo_item",
@@ -20,20 +20,35 @@ import java.time.LocalDateTime;
         })
 @Getter @Setter
 public class DemoItem {
-
+    /**
+     * Identificador único del elemento, autoincrementado.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Descripción del elemento
+     */
     @Column(nullable = false, length = 100)
     private String name;
 
+    /**
+     * Descripcin del elemento
+     */
     @Column(length = 255)
     private String description;
 
+    /**
+     * Fecha y hora de creaciän del elemento
+     * No se puede modificar tras la inserción.
+     */
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    /**
+     * Fecha y hora de la última actualizadión?
+     */
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"
+<html lang="es" xml:lang="es"
       th:with="ignoreSec=false"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
@@ -48,7 +48,7 @@
                     <span th:text="${#strings.replace(#authentication.authorities[0], 'ROLE_', '')}"></span>
                 </div>
                 <form class="d-inline" method="post" th:action="@{/logout}">
-                    <button class="btn btn-link text-danger p-0 fs-5">🔒</button>
+                    <button class="btn btn-link text-danger p-0 fs-5" aria-label="Cerrar sesión">🔒</button>
                 </form>
             </div>
 

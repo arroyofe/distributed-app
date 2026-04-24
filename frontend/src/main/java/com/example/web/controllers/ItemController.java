@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 
     private final ItemService service;
+    private static final String REDIRECT = "redirect:/items";
+    private static final String PAGE = "pageName";
 
     /**
      * Inyección de dependencias del servicio de negocio.
@@ -43,7 +45,7 @@ public class ItemController {
     @GetMapping("")
     public String list(Model m) {
         m.addAttribute("items", service.findAll());
-        m.addAttribute("pageName", "Lista de items");
+        m.addAttribute(PAGE, "Lista de items");
         return "items";   // templates/items.html
     }
 
@@ -61,7 +63,7 @@ public class ItemController {
     @PreAuthorize("hasRole('ADMIN')")
     public String newItem(Model m) {
         m.addAttribute("item", new ItemDto());
-        m.addAttribute("pageName", "Nuevo item");
+        m.addAttribute(PAGE, "Nuevo item");
         return "item-new";   // templates/item-new.html
     }
 
@@ -75,7 +77,7 @@ public class ItemController {
     @PreAuthorize("hasRole('ADMIN')")
     public String create(@Valid @ModelAttribute("item") ItemDto dto) {
         service.create(dto);
-        return "redirect:/items";
+        return REDIRECT;
     }
 
     // ------------------------------------------------------------
@@ -93,10 +95,10 @@ public class ItemController {
     public String editForm(@PathVariable Long id, Model m) {
         // Si findById devuelve un Optional, hace un .get() sino un  .orElseThrow()
         ItemDto dto = service.findById(id);
-        if (dto == null) return "redirect:/items";
+        if (dto == null) return REDIRECT;
 
         m.addAttribute("item", dto);
-        m.addAttribute("pageName", "Modificar item");
+        m.addAttribute(PAGE, "Modificar item");
         return "item-edit";
     }
 
@@ -111,7 +113,7 @@ public class ItemController {
     @PreAuthorize("hasRole('ADMIN')")
     public String editSubmit(@PathVariable Long id, @ModelAttribute ItemDto dto) {
         service.update(id, dto);
-        return "redirect:/items";
+        return REDIRECT;
     }
 
     // ------------------------------------------------------------
@@ -127,6 +129,6 @@ public class ItemController {
     @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
         service.delete(id);
-        return "redirect:/items";
+        return REDIRECT;
     }
 }

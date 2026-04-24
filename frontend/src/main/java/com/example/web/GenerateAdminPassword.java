@@ -12,16 +12,21 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Slf4j
 public class GenerateAdminPassword {
+    /**
+     * Constructor privado para impedir la instanciación.
+     * Esta clase es un utilitario puramente estático.
+     */
+    private GenerateAdminPassword() {
+        // Dejado vacío a propósito para evitar la instanciaciób
+    }
 
     /**
-     * Ejecuta el proceso de cifrado y muestra el hash resultante en los logs.
-     * <p>
-     * Se utiliza para transformar contraseñas en claro en formatos seguros
-     * compatibles con el motor de autenticación de la aplicación.
+     * Genera y muestra en los logs un hash BCrypt para la contraseña del usuario
+     * administrador. Este método debe ejecutarse manualmente durante el desarrollo
+     * o despliegue, y no forma parte del flujo normal de la aplicación.
      */
-    static void main() {
+    public static void generate() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        // Genera el hash para una contraseña vacía o específica
         String hash = encoder.encode("");
         log.info("Hash admin = {}", hash);
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"
+<html lang="es" xml:lang="es"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
@@ -10,9 +10,12 @@
           style="display:none;"
           th:with="pageName='Nuevo usuario'"></span>
 
-    <h2>Crear un nuevo usuario</h2>
+    <h2 id="form-title">Crear un nuevo usuario</h2>
 
-    <form class="form-card" method="post" th:action="@{/users/new}">
+    <form class="form-card" method="post"
+          th:action="@{/users/new}"
+          aria-labelledby="form-title">
+
         <label for="username">Nombre de usuario :</label>
         <input class="input" id="username" name="username" required type="text">
 

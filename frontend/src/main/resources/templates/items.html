@@ -52,9 +52,11 @@
                 </a>
 
                 <form method="post"
-                      style="display:inline;" th:action="@{'/items/delete/' + ${it.id}}">
+                      style="display:inline;"
+                      th:action="@{'/items/delete/' + ${it.id}}"
+                      th:attr="aria-label='Eliminar el item ' + ${it.id}">
 
-                    <button class="btn btn-danger btn-small"
+                <button class="btn btn-danger btn-small"
                             onclick="return confirm('¿Suprimir este item ?');"
                             type="submit">
                         Suprimir

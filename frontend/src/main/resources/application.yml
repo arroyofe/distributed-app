@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://db:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf8}
-    username: root
-    password: rootpass
+    username: ${SPRING_DATASOURCE_ROOT_USERNAME:root}
+    password: ${SPRING_DATASOURCE_ROOT_PASSWORD:rootpass}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   thymeleaf:

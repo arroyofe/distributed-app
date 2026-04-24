@@ -11,11 +11,12 @@
           th:with="pageName='Creación de items'"></span>
 
 
-    <h2>Crear un item nuevo</h2>
+    <h2 id="form-title">Crear un item nuevo</h2>
 
     <form class="form-card" method="post"
           th:action="@{/items/new}"
-          th:object="${item}">
+          th:object="${item}"
+          aria-labelledby="form-title">
 
         <!-- Thymeleaf gestiona CSRF automáticamente gracias a th:action (en test CSRF está disable -->
 
@@ -30,8 +31,6 @@
             Crear
         </button>
     </form>
-
-
     <div style="margin-top:20px;">
         <a class="btn btn-secondary" th:href="@{/items}">← Volver</a>
     </div>

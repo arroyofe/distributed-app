@@ -1,6 +1,7 @@
 package com.example.app.web;
 
 import com.example.app.domain.DemoItem;
+import com.example.app.dto.DemoItemDto;
 import com.example.app.repo.DemoItemRepository;
 import com.example.app.dto.DemoItemCreateUpdateDto;
 import com.example.app.web.mapper.DemoItemMapper;
@@ -28,6 +29,8 @@ import org.springframework.web.bind.annotation.*;
 public class DemoItemController {
 
     private final DemoItemRepository repo;
+    private static final String ITEM = "Item";
+    private static final String NO_ENC = " no encontrado";
 
     /**
      * Constructor de la clase.
@@ -46,7 +49,7 @@ public class DemoItemController {
      * @return una página de DTO que representa a los elementos
      */
     @GetMapping
-    public Page<?> list(
+    public Page<DemoItemDto> list(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size,
             @RequestParam(defaultValue = "id,asc") String sort
@@ -66,7 +69,7 @@ public class DemoItemController {
      */
     @GetMapping("/{id}")
     public Object get(@PathVariable Long id) {
-        DemoItem e = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Item " + id + " no encontrado"));
+        DemoItem e = repo.findById(id).orElseThrow(() -> new EntityNotFoundException(ITEM + id + NO_ENC));
         return DemoItemMapper.toDto(e);
     }
 
@@ -103,7 +106,7 @@ public class DemoItemController {
      */
     @PutMapping("/{id}")
     public Object update(@PathVariable Long id, @Valid @RequestBody DemoItemCreateUpdateDto dto) {
-        DemoItem e = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("Item " + id + " no encontrado"));
+        DemoItem e = repo.findById(id).orElseThrow(() -> new EntityNotFoundException(ITEM + id + NO_ENC));
         DemoItemMapper.apply(e, dto);
         e = repo.save(e);
         return DemoItemMapper.toDto(e);
@@ -118,7 +121,7 @@ public class DemoItemController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        if (!repo.existsById(id)) throw new EntityNotFoundException("Item " + id + " no encontrado");
+        if (!repo.existsById(id)) throw new EntityNotFoundException(ITEM + id + NO_ENC);
         repo.deleteById(id);
         return ResponseEntity.noContent().build();
     }

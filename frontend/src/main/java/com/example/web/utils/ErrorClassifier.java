@@ -7,7 +7,13 @@ package com.example.web.utils;
  * en categorías amigables, facilitando su visualización en la interfaz de usuario.
  */
 public class ErrorClassifier {
-
+    /**
+     * Constructor privado para impedir la instanciación.
+     * Esta clase es un utilitario puramente estático.
+     */
+    private ErrorClassifier() {
+        // Dejado vacío a propósito para evitar la instanciación
+    }
     /**
      * Clasifica una excepción en una categoría funcional basada en su tipo.
      * <p>

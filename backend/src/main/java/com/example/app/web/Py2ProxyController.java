@@ -5,7 +5,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -50,5 +49,39 @@ public class Py2ProxyController {
         this.restTemplate = restTemplate;
         this.py2BaseUrl = py2BaseUrl;
     }
+
+    /**
+     * Proxy hacia el microservico Python.
+     *
+     * Este método envia una peticion GET hacia el endpoint /predict del servicio Python
+     * para ello usa WebClient. La respuesta JSON que devuelve Python se envia directamente
+     * al cliente en forma de Map.
+     *
+     * No hay logica aplicada en este método: este controlador sirve unicamente de pasarela
+     * entre el backend Java y el modulo Python.
+     */
+    @GetMapping("/predict")
+    public Map<String, Object> proxyPredict() {
+        try {
+            return py2WebClient
+                    .get()
+                    .uri(py2BaseUrl + "/predict")
+                    .retrieve()
+                    .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {})
+                    .block();
+
+        } catch (Exception ex) {
+            // Fallback RestTemplate
+            ResponseEntity<Map<String, Object>> response =
+                    restTemplate.exchange(
+                            py2BaseUrl + "/predict",
+                            HttpMethod.GET,
+                            null,
+                            new ParameterizedTypeReference<Map<String, Object>>() {}
+                    );
+            return response.getBody();
+        }
+    }
+
 
 }

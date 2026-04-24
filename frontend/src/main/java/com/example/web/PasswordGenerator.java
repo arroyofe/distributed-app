@@ -5,23 +5,33 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * Herramienta auxiliar para la generación rápida de hashes BCrypt.
- * <p>
- * Proporciona una utilidad simple para transformar cadenas de texto plano
- * en contraseñas encriptadas, facilitando la creación de registros de prueba
- * o credenciales iniciales en los scripts de migración de base de datos.
+ *
+ * Esta clase se utiliza exclusivamente durante el desarrollo o la fase de despliegue
+ * para convertir contraseñas en texto plano en valores cifrados compatibles con el
+ * sistema de autenticación. No forma parte del flujo normal de la aplicación.
+ *
+ * El método {@link #generate(String)} puede ejecutarse manualmente desde el IDE
+ * para obtener un hash seguro que luego puede insertarse en la base de datos
+ * (por ejemplo, mediante scripts Flyway).
  */
 @Slf4j
 public class PasswordGenerator {
-
+    /**
+     * Constructor privado para impedir la instanciación.
+     * Esta clase es un utilitario puramente estático.
+     */
+    private PasswordGenerator() {
+        // Dejado vacío a propósito para evitar la instanciaciób
+    }
     /**
      * Genera y registra en el log el hash BCrypt de la cadena proporcionada.
-     * <p>
-     * Este método permite obtener rápidamente la versión cifrada de una contraseña
-     * para asegurar que los datos sensibles no se almacenen en texto plano
-     * durante la inicialización del sistema.
+     * Este método debe ejecutarse manualmente por un desarrollador cuando se
+     * necesite obtener una contraseña cifrada para pruebas o inicialización.
+     *
+     * @param rawPassword contraseña en texto plano a cifrar
      */
-    static void main() {
-        log.info(
-                new BCryptPasswordEncoder().encode(""));
+    public static void generate(String rawPassword) {
+        String hash = new BCryptPasswordEncoder().encode(rawPassword);
+        log.info("Generated BCrypt hash = {}", hash);
     }
 }

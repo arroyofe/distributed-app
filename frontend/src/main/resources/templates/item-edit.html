@@ -11,27 +11,26 @@
           th:with="pageName='Modificación de items'"></span>
 
 
-    <h2 th:text="'Modificar el item #' + ${item.id}">Modificar</h2>
+    <h2 id="form-title" th:text="'Modificar el item #' + ${item.id}">Modificar</h2>
 
     <form class="form-card" method="post"
           th:action="@{'/items/edit/' + ${item.id}}"
-          th:object="${item}">
+          th:object="${item}"
+          aria-labelledby="form-title">
 
         <!-- El'iD es necesario para la modificación  thymeleaf le génère mais
         sonar demande de l'inclure aussi dans input. Thymeleaf usará su referencia-->
         <input th:field="*{id}" type="hidden"/>
 
         <label for="name">Nombre :</label>
-        <input class="input" id="name" required th:field="*{name}" type="text">
+        <input class="input" id="name" name="name" required th:field="*{name}" type="text" aria-required="true"/>
 
 
         <label for="description">Descripción :</label>
-        <textarea class="input" id="description" th:field="*{description}"></textarea>
+        <textarea class="input" id="description" name="description" th:field="*{description}" rows="4" ></textarea>
 
 
-        <button class="btn btn-warning" style="margin-top:15px;" type="submit">
-            Actualizar
-        </button>
+        <button class="btn btn-warning" style="margin-top:15px;" type="submit">Actualizar</button>
     </form>
 
 

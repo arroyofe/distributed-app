@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang='es'
+<html lang="es" xml:lang="es"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
-
       xmlns:th="http://www.thymeleaf.org">
-
-
 <body>
 
 <!-- Título de la página -->
@@ -19,7 +15,7 @@
     <div style="max-width:400px; margin:60px auto; padding:30px; border-radius:12px;
                 background:#ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
 
-        <h2 style="color:#003366; text-align:center; margin-bottom:25px;">Identification</h2>
+        <h2 id="form-title" style="color:#003366; text-align:center; margin-bottom:25px;">Identification</h2>
 
         <!-- Mensaje de ERROR si ee login no funciona -->
         <div style="background:#f8d7da; color:#721c24; padding:10px; border-radius:5px; margin-bottom:20px; font-size:0.9em; text-align:center;"
@@ -33,8 +29,10 @@
             Se ha desconectado correctamente.
         </div>
 
-        <form method="post" th:action="@{/login}">
-            <div style="margin-bottom:15px; text-align:left;">
+        <form method="post"
+              th:action="@{/login}"
+              aria-labelledby="form-title">
+        <div style="margin-bottom:15px; text-align:left;">
                 <label for="username" style="font-weight:bold; color:#555;">Utilisateur :</label>
                 <input autofocus id="username" name="username" required
                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;"

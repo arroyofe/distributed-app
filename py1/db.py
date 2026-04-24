@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 def _dsn() -> str:
     user = os.getenv("DB_USER", "appuser")
-    pwd = os.getenv("DB_PASSWORD", "password")
+    pwd = os.getenv("DB_PASSWORD") # Se enmascara por confidencialidad
     host = os.getenv("DB_HOST", "db")
     port = os.getenv("DB_PORT", "3306")
     name = os.getenv("DB_NAME", "appdb")
