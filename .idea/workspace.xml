@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/domain/DemoItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/domain/DemoItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/ItemDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/GenerateAdminPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ErrorInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/dto/ErrorInfoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/utils/ErrorClassifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/utils/ErrorClassifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ops/.env" beforeDir="false" afterPath="$PROJECT_DIR$/ops/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/error/error-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/error/error-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py1/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/py1/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py2/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/py2/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,32 +44,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.sonarlint.intellij.config.project.SonarLintProjectConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.sonarlint.intellij.config.project.SonarLintProjectConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02SD_2026\distributed-app\py2" />
@@ -146,7 +117,9 @@
       <workItem from="1776835192495" duration="355000" />
       <workItem from="1776835748336" duration="15917000" />
       <workItem from="1776865987216" duration="4060000" />
-      <workItem from="1776972622145" duration="11161000" />
+      <workItem from="1776972622145" duration="12212000" />
+      <workItem from="1777627054350" duration="4567000" />
+      <workItem from="1777701236124" duration="2103000" />
     </task>
     <servers />
   </component>
