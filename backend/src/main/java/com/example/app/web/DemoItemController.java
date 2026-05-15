@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Controlador REST que expone las operaciones CRUD para la gestión de los {@link DemoItem}.
- *
+ * <p>
  * Esta clase es el punto de entrada HTTP de l'API para los elementos Demo.
  * Delga el acceso a los dato en {@link DemoItemRepository} y usa  * {@link DemoItemMapper}
  * para convertir las entidades del dominio en DTO expuestos al cliente.
  * Los endpoints provistos permiten el listado, la recuperación, la creación, la modificación
  * y la supresión de elementos.
- *
+ * <p>
  * Los parámetros de paginación y de selección se gestionan manualmente para ofrecer una
  * flexibilidad máxima al cliente. Los errores corrientes (elemento no encontrado,
  * validación, unicidad de nombre) son reenviados en forma de respuesta HTTP adaptada.
@@ -75,7 +75,7 @@ public class DemoItemController {
 
     /**
      * Crea un elemento nuevoa partir de los données provistos.
-     *
+     * <p>
      * Verifica igualmente la uniciad del nombre para evitar elementos
      * en doble.
      *

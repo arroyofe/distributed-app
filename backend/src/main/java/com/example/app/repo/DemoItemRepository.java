@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository Spring Data JPA para la gestión de las entidades {@link DemoItem}.
- *
+ * <p>
  * Este interfaz permite las operaciones CRUD estándar por medio de {@link JpaRepository}
  * y expone los métodos de petición que se derivan y con lo que se puede interrogar sobre
  * la existencia de elementos según los criterios necesarios. Sirve de capa de acceso a los

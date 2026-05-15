@@ -5,10 +5,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 /**
- * Controlador de Hello. 
+ * Controlador de Hello.
+ * Para demostración del funcionamiento de un controlador?
  */
 @RestController
 public class HelloController {
+    /**
+     * Constructor de la clase
+     * <p>
+     * @return mensaje de la clase
+     */
     @GetMapping("/api/hello")
     public Map<String, Object> hello() {
         return Map.of("message", "Hello from backend");

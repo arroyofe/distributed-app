@@ -4,19 +4,23 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Items</title>
+</head>
 
 <body>
 <div layout:fragment="content">
     <!-- Título de la página que se verá en el header -->
     <span th:with="pageName='Items'"></span>
 
-    <h2 th:text="${pageName} ?: 'Liste des items'"></h2>
+    <h2 th:text="${pageName} ?: 'Liste des items'">Lista de elementos en almacén</h2>
 
     <!-- BTN Añadir (visible solamente por ADMIN) -->
     <div style="text-align:right; margin-bottom:15px;">
-        <a sec:authorize="hasRole('ADMIN')"
-           th:href="@{/admin/items/new}"
-           class="btn btn-primary">
+        <a class="btn btn-primary"
+           sec:authorize="hasRole('ADMIN')"
+           th:href="@{/admin/items/new}">
             + Añadir un item
         </a>
     </div>

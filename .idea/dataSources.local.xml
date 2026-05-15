@@ -18,5 +18,20 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="appdb@db" uuid="07e31a80-a55a-4f4c-9185-99c976a37890">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <user-name>appuser</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="appdb@db" uuid="ef28eb41-ef5e-4ece-a752-b34fa686b7ff">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <user-name>root</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="appdb@db" uuid="f0c7b8fe-1763-4164-8f3a-45b4ac8cb80a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <user-name>appuser</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

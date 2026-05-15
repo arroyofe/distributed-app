@@ -45,39 +45,53 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable()) // Desactivado provisionalmente para facilitar el desarrollo/testeo
+                .csrf(csrf -> csrf.disable()) // Desactivado provisionalmente para desarrollo/testeo
 
                 .authorizeHttpRequests(auth -> auth
-                        // ACCESO PÚBLICO: Páginas base y recursos estáticos (CSS, JS, imágenes)
+                        // Páginas base y recursos estáticos
                         .requestMatchers("/", "/home", "/index", "/login", "/error/**").permitAll()
-                        .requestMatchers("/css/**", "/js/**", "/images/**", "/static/**", "/webjars/**", "/videos/**", "/docs/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**","/videos/**", "/docs/**", "/webjars/**").permitAll()
 
-                        // ÍTEMS: Consulta pública, pero gestión protegida
+                        // Mapa interactivo: página pública
+                        .requestMatchers("/mapa").permitAll()
+
+                        // Chat: páginas públicas
+                        .requestMatchers("/chat/register", "/chat/chatlogin", "/chat").permitAll()
+
+                        // Endpoint de registro REST (si el frontend hace proxy a /ws-register)
+                        .requestMatchers("/ws-register","/ws-login").permitAll()
+
+                        // Ítems: GET público, gestión protegida
                         .requestMatchers(HttpMethod.GET, "/items", "/items/*").permitAll()
                         .requestMatchers("/items/new", "/items/edit/**", "/items/delete/**").authenticated()
 
-                        // ADMINISTRACIÓN: Gestión de usuarios
-                        .requestMatchers("/users/**").hasRole(ROLE_ADMIN)
+                        // Administración: solo ADMIN
+                        .requestMatchers("/users/**").hasRole("ADMIN")
 
-                        // DESARROLLO: Herramientas de diagnóstico
-                        .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole(ROLE_DEV, ROLE_ADMIN)
+                        // Desarrollo: DEV o ADMIN
+                        .requestMatchers("/dev-dashboard", "/dev/**").hasAnyRole("DEV", "ADMIN")
 
-                        // POKÉMON: Consulta protegida y gestión exclusiva para ADMIN
+                        // Pokémon: consulta protegida; gestión solo ADMIN
                         .requestMatchers(HttpMethod.GET, "/pokemons").authenticated()
-                        .requestMatchers("/pokemons/admin/**", "/pokemons/new/**", "/pokemons/edit/**", "/pokemons/delete/**").hasRole(ROLE_ADMIN)
+                        .requestMatchers("/pokemons/admin/**", "/pokemons/new/**", "/pokemons/edit/**", "/pokemons/delete/**").hasRole("ADMIN")
 
-                        // SEGURIDAD POR DEFECTO: Cualquier otra ruta requiere autenticación
+                        // WebSocket / STOMP → DEBEN ser públicos para SockJS
+                        // .requestMatchers("/ws/**").permitAll()
+                        // .requestMatchers("/app/**").permitAll()
+
+
+                                // Resto: requiere autenticación
                         .anyRequest().authenticated()
                 )
 
-                // CONFIGURACIÓN DEL LOGIN: Página personalizada y ruta de éxito
+                // Login personalizado
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/index", false)
+                        .defaultSuccessUrl("/index", true)
                         .permitAll()
                 )
 
-                // CONFIGURACIÓN DEL LOGOUT: Ruta de salida y página de confirmación
+                // Logout
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/logout-success")

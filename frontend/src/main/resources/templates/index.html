@@ -4,10 +4,13 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
       xmlns:th="http://www.thymeleaf.org">
-
+<head>
+    <meta charset="utf-8">
+    <title>Indice</title>
+</head>
 <body>
 <main layout:fragment="content">
-    <!-- Titre de bienvenue dynamique -->
+    <!-- Titulo de bienvenida dinamica -->
     <div class="py-4 border-bottom mb-4">
         <h2 class="display-5 text-primary">Panel de Control</h2>
         <p class="lead text-muted">Bienvenido, <span class="fw-bold text-dark" sec:authentication="name">Usuario</span>.
@@ -16,62 +19,87 @@
 
     <div class="row g-4">
 
-        <!-- SECTION: ACCESO GENERAL (Visible para el conjunto de usuarios) -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm border-0 border-top border-primary border-4">
-                <div class="card-body text-center py-4">
+        <!-- SECCION: ACCESO GENERAL (Visible para el conjunto de usuarios) -->
+        <!-- ACCESO al almacén de items -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
                     <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
                     <h5 class="card-title fw-bold">Almacén</h5>
                     <p class="card-text text-muted small">Consultar la lista completa de items disponibles.</p>
-                    <a class="btn btn-primary w-100 mt-2" th:href="@{/items}">Ver Items</a>
+                    <a class="btn btn-primary w-100 mt-auto" th:href="@{/items}">Ver Items</a>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION: POKEMON (Visible para los usuarios autenticados) -->
-        <div class="col-md-6 col-lg-4" sec:authorize="isAuthenticated()">
-            <div class="card h-100 shadow-sm border-0 border-top border-info border-4">
-                <div class="card-body text-center py-4">
-                    <div class="display-4 text-info mb-3"><i class="bi bi-bug"></i></div>
+        <!-- ACCESO al chat -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
+                    <h5 class="card-title fw-bold">Chat Web</h5>
+                    <p class="card-text text-muted small">Usar al chat de esta web.</p>
+                    <a class="btn btn-primary w-100 mt-auto" th:href="@{/chat/register}">Ir al registro chat</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCESO al mapa interactivo -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
+                    <h5 class="card-title fw-bold">Mapa Interactivo</h5>
+                    <p class="card-text text-muted small">Visualizar coordenadas en mapa interactivo.</p>
+                    <a class="btn btn-primary w-100 mt-auto" th:href="@{/mapa}">Ver mapa interactivo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCION: POKEMON (Visible para los usuarios autenticados) -->
+        <div class="col-12 col-md-6 col-lg-3" sec:authorize="isAuthenticated()">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
                     <h5 class="card-title fw-bold">Pokémon</h5>
                     <p class="card-text text-muted small">Explorar la lista de Pokémon registrados.</p>
-                    <a class="btn btn-primary text-white w-100 mt-2" th:href="@{/pokemons}">Ver Pokémones</a>
+                    <a class="btn btn-primary text-white w-100 mt-auto" th:href="@{/pokemons}">Ver Pokémones</a>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION: DEV SPACE (ADMIN & DEV) -->
-        <div class="col-md-6 col-lg-4" sec:authorize="hasAnyRole('ADMIN','DEV')">
-            <div class="card h-100 shadow-sm border-0 border-top border-secondary border-4">
-                <div class="card-body text-center py-4">
-                    <div class="display-4 text-secondary mb-3"><i class="bi bi-tools"></i></div>
+        <!-- SECCION: ESPACIO DEV (ADMIN & DEV) -->
+        <div class="col-12 col-md-6 col-lg-3" sec:authorize="hasAnyRole('ADMIN','DEV')">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
                     <h5 class="card-title fw-bold">Desarrollo</h5>
                     <p class="card-text text-muted small">Acceder a las herramientas técnicas y métricas.</p>
-                    <a class="btn btn-outline-secondary w-100 mt-2" th:href="@{/dev/dashboard}">Espacio DEV</a>
+                    <a class="btn btn-outline-secondary w-100 mt-auto" th:href="@{/dev/dashboard}">Espacio DEV</a>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION: GESTIÓN ADMIN (Solo ADMIN) -->
-        <div class="col-md-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
-            <div class="card h-100 shadow-sm border-0 border-top border-danger border-4 bg-light">
-                <div class="card-body text-center py-4">
-                    <div class="display-4 text-danger mb-3"><i class="bi bi-shield-lock"></i></div>
+        <!-- SECCION: GESTIÓN ADMIN (Solo ADMIN) -->
+        <div class="col-12 col-md-6 col-lg-3" sec:authorize="hasRole('ADMIN')">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
                     <h5 class="card-title fw-bold">Usuarios</h5>
                     <p class="card-text text-muted small">Administrar cuentas, roles y seguridad.</p>
-                    <a class="btn btn-danger w-100 mt-2" th:href="@{/users}">Gestionar Usuarios</a>
+                    <a class="btn btn-danger w-100 mt-auto" th:href="@{/users}">Gestionar Usuarios</a>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION: GESTIÓN POKEMON (Solo ADMIN) -->
-        <div class="col-md-6 col-lg-4" sec:authorize="hasRole('ADMIN')">
-            <div class="card h-100 shadow-sm border-0 border-top border-warning border-4 bg-light">
-                <div class="card-body text-center py-4">
-                    <div class="display-4 text-warning mb-3"><i class="bi bi-gear"></i></div>
+        <!-- SECCION: GESTIÓN POKEMON (Solo ADMIN) -->
+        <div class="col-12 col-md-6 col-lg-3" sec:authorize="hasRole('ADMIN')">
+            <div class="card h-100 d-flex flex-column shadow-sm border-0 border-top border-primary border-4">
+                <div class="card-body text-center py-4 d-flex flex-column">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
                     <h5 class="card-title fw-bold">Mantenimiento</h5>
                     <p class="card-text text-muted small">Configuración avanzada de la base Pokémon.</p>
-                    <a class="btn btn-warning w-100 mt-2" th:href="@{/pokemons/admin}">Gestionar Pokémon</a>
+                    <a class="btn btn-warning w-100 mt-auto" th:href="@{/pokemons/admin}">Gestionar Pokémon</a>
                 </div>
             </div>
         </div>

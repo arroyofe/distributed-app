@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="ultraq.net.nz"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Login Chat</title>
+    <th:block th:with="pageTitle='UBU - Acceso al Chat Web'"></th:block>
+</head>
+<body>
+<main layout:fragment="content">
+    <!-- Actualización de la variable del Breadcrumb del layout -->
+    <div th:with="pageName='Acceso Chat'" th:remove="all"></div>
+
+    <div class="container py-4">
+        <div class="py-3 border-bottom mb-4 text-center">
+            <h2 class="display-6 fw-bold" style="color: #003366;">Acceso al Chat</h2>
+            <p class="lead text-muted">Inicia sesión con tus credenciales de chat independientes.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <!-- Se reutiliza tu estilo .form-card de style.css de forma elegante -->
+                <div class="form-card shadow-sm border-0 w-100 p-4">
+                    <h5 class="card-title mb-4 text-center fw-bold text-secondary">Iniciar sesión</h5>
+
+                    <form id="loginForm" onsubmit="submitLogin(event)" class="d-flex flex-column">
+                        <div class="mb-3">
+                            <label for="chatUsername" class="form-label fw-semibold">Usuario del Chat</label>
+                            <!-- Se cambia el ID a chatUsername para evitar conflictos en el DOM con el layout -->
+                            <input type="text" class="form-control" id="chatUsername" name="username" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="chatPassword" class="form-label fw-semibold">Contraseña</label>
+                            <!-- Se cambia el ID a chatPassword -->
+                            <input type="password" class="form-control" id="chatPassword" name="password" required>
+                        </div>
+
+                        <div id="loginAlert" class="alert d-none" role="alert"></div>
+
+                        <div class="d-grid mt-2">
+                            <button type="submit" class="btn btn-primary fw-bold" style="background-color: #003366; border: none;">Entrar al Chat</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 text-center border-top pt-3">
+                        <a th:href="@{/chat/register}" class="text-decoration-none">¿No tienes cuenta de chat? Regístrate aquí</a>
+                    </div>
+
+                    <div class="mt-3 text-center text-muted small bg-light p-2 rounded">
+                        <div sec:authorize="isAuthenticated()">
+                            🌐 Sistema Web: Identificado como <strong sec:authentication="name"></strong>
+                        </div>
+                        <div sec:authorize="isAnonymous()">
+                            🌐 Sistema Web: Navegando de forma anónima
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script aislado que ya no interfiere con Spring Security global -->
+    <script>
+        async function submitLogin(e) {
+            e.preventDefault();
+
+            const alertEl = document.getElementById('loginAlert');
+            alertEl.className = 'alert d-none';
+
+            // Captura los nuevos IDs específicos e independientes
+            const username = document.getElementById('chatUsername').value.trim();
+            const password = document.getElementById('chatPassword').value;
+
+            try {
+                const res = await fetch('/ws-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (res.ok) {
+                    sessionStorage.setItem("chatUser", username);
+                    window.location.href = "/chat";
+                } else {
+                    const text = await res.text();
+                    alertEl.className = 'alert alert-danger mt-2';
+                    alertEl.textContent = text || 'Credenciales de chat incorrectas';
+                }
+
+            } catch (err) {
+                console.error('Detalles técnicos del error de conexión:', err);
+                alertEl.className = 'alert alert-danger mt-2';
+                alertEl.textContent = 'Error de conexión';
+            }
+        }
+    </script>
+</main>
+</body>
+</html>

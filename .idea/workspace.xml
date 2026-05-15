@@ -5,8 +5,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5439f8a-1c7f-4dbb-96c7-35b3dcd81ebf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/diff-generator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/ChatPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/controllers/MapaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/static/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/static/js/stomp.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/chatlogin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/mapa.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py1/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py2/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/WebsocketServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/configuration/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/controller/WsAuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/controller/WsMessageRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/controller/WsStompController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/dto/ChatMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/dto/PrivateChatMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/dto/WsLoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/dto/WsRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/model/WsMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/model/WsUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/repository/WsMessageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/repository/WsUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/security/PasswordConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/security/WsUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/services/PresenceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/services/WsAuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/services/WsMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/websocket/PresenceScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/websocket/UserHandshakeInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/java/com/example/websocket/WebSocketConnectListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/resources/db/migration/V1__baseline.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/resources/db/migration/V2__create_ws_user.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/websocket-server/src/main/resources/db/migration/V3__create_ws_message_queue.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/dto/DemoItemCreateUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/error/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/repo/DemoItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/repo/DemoItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/service/Py2ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/DemoItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/Py2ProxyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/app/web/mapper/DemoItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/PasswordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/web/services/PokemonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/api2.template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/auth/logout-success.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/auth/logout-success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/dev-tools.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/error/error-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/item-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemon-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/pokemons-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/user-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ops/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ops/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/ops/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/api2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/dev-tools.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/error/error-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/error/error-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/item-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/item-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/item-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/item-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/user-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/user-new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/frontend/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/frontend/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py1/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/py2/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/py2/templates/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/py2/templates/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +120,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Python Script" />
+        <option value="AnnotationType" />
+        <option value="Dockerfile" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -33,7 +141,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -44,41 +152,97 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.sonarlint.intellij.config.project.SonarLintProjectConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.AppApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/fernando/Documents/Pract_UBU_Sist_Dist/Practica02SD_2026/distributed-app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "Errors",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="controller" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02SD_2026\distributed-app\websocket-server\src\main\resources\db\migration" />
+      <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02SD_2026\distributed-app\websocket-server\src\main\resources" />
       <recent name="C:\Users\fernando\Documents\Pract_UBU_Sist_Dist\Practica02SD_2026\distributed-app\py2" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.services" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="clean verify sonar:sonar -Dsonar.projectKey=distributed-app -Dsonar.projectName='distributed-app' -Dsonar.host.url=http://localhost:9000 -Dsonar.token= sqp_4a6c5505b67d68530ee5ae7372c945d9b2ff27ff" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="AppApplication" value="FAILED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.AppApplication">
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="SONAR_HOST_URL" value="http://localhost:9000" />
+        <env name="SONAR_PROJECTKEY" value="distributed-app" />
+        <env name="SONAR_PROJECTNAME" value="distributed-app" />
+        <env name="SONAR_TOKEN" value="sqp_4a6c5505b67d68530ee5ae7372c945d9b2ff27ff" />
+      </envs>
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.app.AppApplication" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,6 +254,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebsocketServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="websocket-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.WebsocketServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.AppApplication" />
+      <item itemvalue="Spring Boot.FrontendApplication" />
+      <item itemvalue="Spring Boot.WebsocketServerApplication" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -119,8 +295,27 @@
       <workItem from="1776865987216" duration="4060000" />
       <workItem from="1776972622145" duration="12212000" />
       <workItem from="1777627054350" duration="4567000" />
-      <workItem from="1777701236124" duration="2103000" />
+      <workItem from="1777701236124" duration="33497000" />
+      <workItem from="1777812553645" duration="4307000" />
+      <workItem from="1777817191199" duration="8000" />
+      <workItem from="1777817239364" duration="21000" />
+      <workItem from="1777817284731" duration="2438000" />
+      <workItem from="1777873788040" duration="67066000" />
+      <workItem from="1778059237948" duration="11033000" />
+      <workItem from="1778303609498" duration="26473000" />
+      <workItem from="1778419131577" duration="4681000" />
+      <workItem from="1778681094864" duration="2546000" />
+      <workItem from="1778689166839" duration="59802000" />
     </task>
+    <task id="LOCAL-00001" summary="Añadir enlace a web externa&#10;&#10;Ultima modificación. Añadido un enlace a la web de la UBU para cumplir uno de los requisitos de la entrega">
+      <option name="closed" value="true" />
+      <created>1777787990913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1777787990914</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +331,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Añadir enlace a web externa&#10;&#10;Ultima modificación. Añadido un enlace a la web de la UBU para cumplir uno de los requisitos de la entrega" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadir enlace a web externa&#10;&#10;Ultima modificación. Añadido un enlace a la web de la UBU para cumplir uno de los requisitos de la entrega" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

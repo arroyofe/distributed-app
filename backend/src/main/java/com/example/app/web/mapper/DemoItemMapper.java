@@ -7,13 +7,13 @@ import com.example.app.dto.DemoItemCreateUpdateDto;
 /**
  * Utilitario de conversián entre las entidades {@link DemoItem} del dominio y los
  * otros DTO utilizados por la capa web.
- *
+ * <p>
  * Esta clase provee los métodos estáticos que permiten la transformacián de un
  * objet en DTO ou aplicar los datos de un DTO de creación/actualización de una
  * entidad existente. Centraliza la lógica del mapping para evitar la duplicación
  * del código en los controladores o servicios y garantiza una separación clara
  * entre los modelos internos y los objetos expuestos a través de la API.
- *
+ * <p>
  * No tiene mecanismos lágicos, solamente se limit a la transformación de datos.
  */
 public class DemoItemMapper {

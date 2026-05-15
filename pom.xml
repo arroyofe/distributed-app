@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>websocket-server</module>
         <module>backend</module>
         <module>frontend</module>
     </modules>

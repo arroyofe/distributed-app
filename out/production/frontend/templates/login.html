@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 
@@ -35,14 +36,14 @@
 
         <form th:action="@{/login}" method="post">
             <div style="margin-bottom:15px; text-align:left;">
-                <label style="font-weight:bold; color:#555;">Utilisateur :</label>
-                <input type="text" name="username" required autofocus
+                <label style="font-weight:bold; color:#555;" for="usernameInput">Utilisateur :</label>
+                <input type="text" id="usernameInput" name="username" required autofocus
                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;">
             </div>
 
             <div style="margin-bottom:25px; text-align:left;">
-                <label style="font-weight:bold; color:#555;">Mot de passe :</label>
-                <input type="password" name="password" required
+                <label style="font-weight:bold; color:#555;" for="passwInput">Mot de passe :</label>
+                <input type="password" id="passwInput" name="password" required
                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; margin-top:5px; box-sizing: border-box;">
             </div>
 

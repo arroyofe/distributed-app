@@ -9,17 +9,17 @@ import java.util.Map;
 
 /**
  * Servicio responsable de la comunicación con el módulo Python externo.
- *
+ * <p>
  * Esta clase encapsula el uso de {@link WebClient} que está dedicado a los intercambios
  * con el servicio Python, proporcionando una capa de abstracción clara entre
  * el backend Java y el componente externo. Centraliza las llamadas HTTP salientes y
  * proporciona los métodos simples para recuperar, crear o superior des elementos
  * gestionados por el módelo Python.
- *
+ * <p>
  * El uso de un cliente Web permite evitar la duplicación de configuración HTTP, asegurar una
  * comunicación coherente, facilita los tests y separa claramente la lógica oficio de la
  * lógica de llamada externa.
- *
+ * <p>
  * Los métodos de este servicio usan {@code block()} para simplificar la llamada
  * en un contexto no reactivo y adaptado  si el resto de la aplicacián funciona de
  * manera síncrona.

@@ -3,6 +3,10 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Nuevo usuario</title>
+</head>
 
 <body>
 <div layout:fragment="content">
@@ -17,14 +21,14 @@
                th:name="${_csrf.parameterName}"
                th:value="${_csrf.token}"/>
 
-        <label>Nombre de usuario :</label>
-        <input type="text" name="username" class="input" required>
+        <label for="userNameInput">Nombre de usuario :</label>
+        <input type="text" id="userNameInput" name="username" class="input" required>
 
-        <label>Contraseña :</label>
-        <input type="password" name="passwordHash" class="input" required>
+        <label for="passInput">Contraseña :</label>
+        <input type="password" id="passInput" name="passwordHash" class="input" required>
 
-        <label>Rol :</label>
-        <select name="role" class="input">
+        <label for="rolInput">Rol :</label>
+        <select id="rolInput" name="role" class="input">
             <option value="ROLE_ADMIN">ADMIN</option>
             <option value="ROLE_USER">USER</option>
             <option value="ROLE_DEV">DEV</option>

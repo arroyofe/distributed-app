@@ -100,12 +100,19 @@ public class PokemonService {
         }
     }
 
-    /** @param id ID del Pokémon a eliminar. */
+    /**
+     * Borra un Pokemon indicado por su id
+     * @param id ID del Pokémon a eliminar. */
     public void delete(Long id) {
+
         rest.delete(py1Url + "/pokemons/" + id);
     }
 
-    /** @param id ID del Pokémon a buscar. @return El Pokémon encontrado. */
+    /**
+     * Devuelve el objeto Pokemno pedido por id
+     * <p>
+     * @param id ID del Pokémon a buscar.
+     * @return El Pokémon encontrado. */
     public PokemonDto findById(Long id) {
         return rest.getForObject(py1Url + "/" + id, PokemonDto.class);
     }

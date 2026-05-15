@@ -8,11 +8,13 @@ WORKDIR /build
 COPY pom.xml ./pom.xml
 COPY backend/pom.xml backend/pom.xml
 COPY frontend/pom.xml frontend/pom.xml
+COPY websocket-server/pom.xml websocket-server/pom.xml
 
-# 2) Copia del código fuente de ambos módulos.
+# 2) Copia del código fuente de todos los módulos.
 # Necesario para que Maven valide las referencias cruzadas durante el empaquetado.
 COPY backend ./backend
 COPY frontend ./frontend
+COPY websocket-server ./websocket-server
 
 # 3) Compilación específica del frontend.
 # -pl frontend: Indica a Maven que solo empaquete el módulo de interfaz.
@@ -30,6 +32,19 @@ COPY --from=build /build/frontend/target/*.jar app.jar
 
 # Exposición del puerto 8081 (puerto configurado para el frontend en docker-compose).
 EXPOSE 8081
+
+# --- SOLUCIÓN SONAR COMPATIBLE CON TEMURIN ---
+
+# 1. Creamos las carpetas necesarias como root
+RUN mkdir -p /app/tmp /app/logs
+
+# 2. Cambiamos el dueño de conjunto al ID 1000 (usuario estándar no-root)
+# Usamos el ID directamente para evitar el error de "user not found" o "already exists"
+RUN chown -R 1000:0 /app && \
+    chmod -R 775 /app
+
+# 3. Cambiamos al usuario 1000
+USER 1000
 
 # Ejecución de la aplicación Spring Boot.
 ENTRYPOINT ["java","-jar","app.jar"]

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="snapshotDbValue" value="7e66ce5b-38ed-4753-b626-e67effa040dd" />
+    <option name="sourceDbValue" value="7e66ce5b-38ed-4753-b626-e67effa040dd" />
+    <option name="sourceModelValue" value="websocket-server:websocket-server" />
+    <option name="targetDbValue" value="7e66ce5b-38ed-4753-b626-e67effa040dd" />
+  </component>
+</project>

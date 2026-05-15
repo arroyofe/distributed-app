@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mapa interactivo</title>
+    <meta charset="utf-8">
+    <!-- Se añade dinámicamente al <head> del layout gracias al motor de Thymeleaf -->
+    <th:block th:with="pageTitle='Mapa de Coordenadas GPS'"></th:block>
+    <!-- Leaflet CSS -->
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+</head>
+<body>
+
+<main layout:fragment="content">
+    <!-- Variables pasadas al Breadcrumb del layout automáticamente -->
+    <div th:with="pageName='Mapa Interactivo GPS'" th:remove="all"></div>
+
+    <div class="container-fluid px-4 py-2">
+        <div class="row">
+            <div class="col-12 col-xl-10 mx-auto">
+
+                <div class="card shadow-sm mb-4 border-0">
+                    <div class="card-body p-2 bg-white rounded">
+                        <!-- El contenedor del mapa usando la nueva clase CSS -->
+                        <div id="map" class="mapa-contenedor"></div>
+                    </div>
+                </div>
+
+                <!-- Panel de información de coordenadas con estilos del proyecto -->
+                <div class="card mapa-card-info p-3 shadow-sm text-center mb-3">
+                    <h5 class="fw-bold text-dark m-0 mb-1" style="font-size: 16px;">COORDENADAS GEOGRÁFICAS CENTRADAS DE INICIO  EN EP DE LA UBU</h5>
+                    <div id="coordenadas-box">
+                        <p id="coordenadas" class="fs-5 text-muted m-0">
+                            Mueve el ratón sobre el mapa para escanear el terreno...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center text-secondary small mb-4">
+                    💡 <strong>Uso del visor:</strong> El panel registra la posición instantánea del cursor. Haz <strong>un clic izquierdo</strong> en cualquier punto para clavar un marcador permanente.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts requeridos de Leaflet (Se ejecutan dentro del fragmento del cuerpo) -->
+    <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script>
+        // 1. Inicialización del entorno del mapa centrado en la EPS de la UBU con zoom urbano (16)
+        var map = L.map('map').setView([42.353048, -3.687876], 16);
+
+        // 2. Carga del callejero desde el servidor abierto OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // 3. Marcado inicial de la EPS de la UBU en el mapa
+        L.marker([42.353048, -3.687876]).addTo(map)
+            .bindPopup("<b>EPS - Universidad de Burgos</b><br>Campus San Amaro")
+            .openPopup();
+
+        var marcador = null;
+        var infoBox = document.getElementById('coordenadas');
+
+        // Corrige fallos de carga visual asíncrona provocados por Flexbox
+        setTimeout(function () {
+            map.invalidateSize();
+        }, 300);
+
+        // 4. Captura del movimiento del ratón
+        map.on('mousemove', function(e) {
+            var lat = e.latlng.lat.toFixed(6);
+            var lng = e.latlng.lng.toFixed(6);
+            infoBox.innerHTML = `<strong>Posición actual:</strong> Latitud: <span class="text-primary">${lat}</span> | Longitud: <span class="text-primary">${lng}</span>`;
+        });
+
+        // 5. Captura del evento de fijación de marcador por Clic
+        map.on('click', function(e) {
+            var lat = e.latlng.lat.toFixed(6);
+            var lng = e.latlng.lng.toFixed(6);
+
+            if (marcador === null) {
+                marcador = L.marker(e.latlng).addTo(map);
+            } else {
+                marcador.setLatLng(e.latlng);
+            }
+
+            document.getElementById('coordenadas-box').innerHTML = `
+                <div class="alert alert-success d-inline-block px-4 py-1 m-0 border-0 fw-bold fs-5 shadow-sm">
+                    📍 Marcador fijado con éxito &rarr; Lat: ${lat} | Lng: ${lng}
+                </div>
+            `;
+
+            marcador.bindPopup(`<b>Punto Fijado:</b><br>Lat: ${lat}<br>Lng: ${lng}`).openPopup();
+        });
+    </script>
+</main>
+
+</body>
+</html>

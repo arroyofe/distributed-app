@@ -56,8 +56,9 @@ body {
    MAIN CONTENT
 ============================ */
 .content {
-    min-height: calc(100vh - 180px); /* 120 header + 60 footer */
-    padding: 20px;
+  padding: 20px;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 /* ============================
@@ -169,3 +170,55 @@ footer {
     padding: 4px 9px;
     font-size: 13px;
 }
+
+
+/* ========================
+      Chat layout
+=========================== */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.5rem;
+}
+
+/* Área de usuarios y mensajes */
+#connected-users {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+/* Evita que inputs rompan el layout */
+.chat-container input {
+    max-width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+/* ========================
+      Mapa Leaflet
+=========================== */
+.mapa-contenedor {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: crosshair; /* Cursor en forma de cruz para apuntar coordenadas */
+}
+
+.mapa-card-info {
+    background-color: #ffffff;
+    border-left: 5px solid #003366; /* Azul corporativo UBU del Header */
+    border-radius: 4px;
+}
+
+
+

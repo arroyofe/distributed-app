@@ -2,7 +2,13 @@
 <html lang="es"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+</head>
 <body>
 <main layout:fragment="content">
     <span id="pageTitleSetter"
@@ -10,39 +16,41 @@
           th:with="pageName='Inicio'"></span>
 
 
-    <h2 style="color:#003366;">Bienvenido a Sistemas Distribuidos de la EPI de la UBU</h2>
-    <div class="container mt-4"
-         style="display:flex; gap:40px; align-items:flex-start;">
+    <div class="container-fluid mt-3">
+        <h2 style="color:#003366;">Bienvenido a Sistemas Distribuidos de la EPI de la UBU</h2>
+        <!-- SECCIÓN DE BOTONES: Corregido el flujo con Bootstrap Row -->
+        <div class="row mb-5">
+            <!-- Acceso al indice general -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <p style="font-size:18px; color:#444;">
+                    Pinche en el enlace siguiente para continuar :
+                </p>
 
-        <!-- Acceso al indice general -->
-        <div>
-            <p style="font-size:18px; color:#444;">
-                Pinche en el enlace siguiente para continuar :
-            </p>
+                <a class="btn btn-primary"
+                    style="font-size:18px; padding:12px 20px;"
+                    th:href="@{/index}">
+                    📦 Ver la lista de opciones
+                </a>
+            </div>
 
-            <a class="btn btn-primary"
-               style="font-size:18px; padding:12px 20px;"
-               th:href="@{/index}">
-                📦 Ver la lista de opciones
-            </a>
+            <!-- Acceso a página externa -->
+            <div class="col-md-6">
+                <p style="font-size:18px; color:#444;">
+                    Acceso a la web de la UBU :
+                </p>
+
+                <a class="btn btn-primary"
+                    style="font-size:18px; padding:12px 20px;"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.ubu.es/">
+                    🌐 UBU web
+                </a>
+            </div>
+
         </div>
 
-        <!-- Acceso a página externa -->
-        <div>
-            <p style="font-size:18px; color:#444;">
-                Acceso a la web de la UBU :
-            </p>
-
-            <a class="btn btn-primary"
-               style="font-size:18px; padding:12px 20px;"
-               href="https://www.ubu.es/">
-                🌐  UBU web
-            </a>
-        </div>
-
-    </div>
-
-    <div class="row align-items-center">
+        <div class="row align-items-center">
 
             <!-- Columna izquierda : texto + PDF -->
             <div class="col-md-6 mb-4">
@@ -65,39 +73,45 @@
             </div>
 
             <!-- Columna derecha : video -->
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-center mb-4">
 
                 <video class="w-100"
                        controls
                        id="videoDemo"
                        poster="/images/preview.jpg">
                     <source th:src="@{/videos/demo.mp4}" type="video/mp4">
-                    <track kind="captions" label="Español" srclang="es" th:src="@{videos/demo.mp4}">
+                    <track kind="captions" label="Español" srclang="es" th:src="@{/videos/demo.mp4}">
                 </video>
 
-                <script>
-                    const video = document.getElementById("videoDemo");
-
-                    // Pone en pausa al cambiar de pestaña
-                    document.addEventListener("visibilitychange", function () {
-                        if (document.hidden) {
-                            video.pause();
-                        }
-                    });
-
-                    // Lanza el víeo al hacer click en la image preview
-                    video.addEventListener("click", function () {
-                        if (video.paused) {
-                            video.play();
-                        }
-                    });
-                </script>
-
             </div>
-
         </div>
-
     </div>
+
+    <!-- LÓGICA DEL VÍDEO -->
+    <script>
+        // Envolvemos en un evento de carga para asegurar que el DOM esté listo
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("videoDemo");
+
+            if (video) {
+                // Pone en pausa al cambiar de pestaña
+                document.addEventListener("visibilitychange", function () {
+                    if (document.hidden) {
+                        video.pause();
+                    }
+                });
+
+                // Lanza el vídeo al hacer click en la imagen preview
+                video.addEventListener("click", function () {
+                    if (video.paused) {
+                        video.play();
+                    }
+                });
+            }
+        });
+    </script>
+
+
 </main>
 </body>
 </html>

@@ -1,0 +1,25 @@
+# Entornos virtuales (indispensable)
+.venv/
+venv/
+env/
+ENV/
+
+# Caché de Python (en cualquier subcarpeta)
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+
+# Git y configuración de editores
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Archivos sensibles y logs
+.env
+*.log
+docker-compose.override.yml
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db

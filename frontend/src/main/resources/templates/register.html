@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es"
+      layout:decorate="~{layout}"
+      xmlns:layout="ultraq.net.nz"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Registro del Chat Web</title>
+    <th:block th:with="pageTitle='UBU - Registro de Chat Web'"></th:block>
+</head>
+<body>
+<main layout:fragment="content">
+    <!-- Actualización de la variable del Breadcrumb del layout -->
+    <div th:with="pageName='Registro Chat'" th:remove="all"></div>
+
+    <div class="container py-4">
+        <div class="py-3 border-bottom mb-4 text-center">
+            <h2 class="display-6 fw-bold" style="color: #003366;">Registro de Chat</h2>
+            <p class="lead text-muted">Crea una cuenta exclusiva para participar en las salas de conversación.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <!-- Integración con la clase .form-card de tu hoja de estilos -->
+                <div class="form-card shadow-sm border-0 w-100 p-4">
+                    <h5 class="card-title mb-4 text-center fw-bold text-secondary">Crear cuenta nueva</h5>
+
+                    <form id="registerForm" onsubmit="submitForm(event)" class="d-flex flex-column">
+                        <div class="mb-3">
+                            <label for="regChatUsername" class="form-label fw-semibold">Nombre de usuario</label>
+                            <!-- ID único para evitar conflictos con el layout general -->
+                            <input type="text" class="form-control" id="regChatUsername" name="username" required minlength="3" maxlength="100">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regChatPassword" class="form-label fw-semibold">Contraseña del chat</label>
+                            <!-- ID único para evitar conflictos con el layout general -->
+                            <input type="password" class="form-control" id="regChatPassword" name="password" required minlength="6">
+                        </div>
+
+                        <div id="registerAlert" class="alert d-none" role="alert"></div>
+
+                        <div class="d-grid mt-2">
+                            <button type="submit" class="btn btn-primary fw-bold" style="background-color: #003366; border: none;">Completar Registro</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 text-center border-top pt-3">
+                        <a th:href="@{/chat/chatlogin}" class="text-decoration-none">¿Ya tienes cuenta de chat? Inicia sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script con selectores corregidos para Sonar y rendimiento -->
+    <script>
+        async function submitForm(e) {
+            e.preventDefault();
+            const alertEl = document.getElementById('registerAlert');
+            alertEl.className = 'alert d-none';
+
+            // Captura los campos usando los nuevos IDs limpios
+            const username = document.getElementById('regChatUsername').value.trim();
+            const password = document.getElementById('regChatPassword').value;
+
+            try {
+                const res = await fetch('/ws-register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const text = await res.text();
+                if (res.ok) {
+                    alertEl.className = 'alert alert-success mt-2';
+                    alertEl.textContent = 'Registrado correctamente. Redirigiendo al login…';
+                    setTimeout(() => window.location.href = '/chat/chatlogin', 900);
+                } else {
+                    alertEl.className = 'alert alert-danger mt-2';
+                    alertEl.textContent = text || 'Error en el registro';
+                }
+            } catch (err) {
+                console.error('Detalles técnicos del error de conexión:', err);
+                alertEl.className = 'alert alert-danger mt-2';
+                alertEl.textContent = 'Error de conexión';
+            }
+        }
+    </script>
+</main>
+</body>
+</html>

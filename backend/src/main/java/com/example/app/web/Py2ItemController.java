@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 /**
  * Controlador REST que sirve de pasaela entre el backend Java y el módulo Python.
- *
+ * <p>
  * Esta clase expone una API simple que permite la recuperació, la creación y la supresión
  * de elementos gestionado por el servio Python. Delefa el conjunto de la lógica de llamada
  * HTTP al {@link Py2ItemService}, lo cual permite una separación clara de la capa web y la
  * lógica de integración externa.
- *
+ * <p>
  * Les datos intercambiados son manipulados en forma de estructuras genéricas ({@code Map<String, Object>})
  *  con el fin de reflejar directement las respuestas JSON enviada por el módulo Python.
  */

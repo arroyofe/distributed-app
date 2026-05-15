@@ -10,10 +10,10 @@ import java.time.Duration;
 /**
  * Configuración centralizada del cliente HTTP utilisé por la aplicación para communicar con los
  * los servicios externos.
- *
+ * <p>
  * Esta clase declara y configura un {@link org.springframework.web.client.RestTemplate}
  * compartido, y definen en particular Los timeouts de conexión y de lectura,
- *
+ * <p>
  * Con ella se consigue asegurar un comportamiento coherente de las llamadas HTTP que
  * salend del backend, evitando la duplicación de la configuración de los diferentes servicios.
  */

@@ -1,0 +1,16 @@
+# Carpetas de compilación (Maven/Gradle)
+target/
+build/
+out/
+.gradle/
+
+# Archivos de configuración del IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Logs y temporales
+*.log
+temp/

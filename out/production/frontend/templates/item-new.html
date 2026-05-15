@@ -3,6 +3,10 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8">
+    <title>Items nuevo elemento</title>
+</head>
 
 <body>
 <div layout:fragment="content">
@@ -17,11 +21,11 @@
                th:name="${_csrf.parameterName}"
                th:value="${_csrf.token}"/>
 
-        <label>Nombre :</label>
-        <input type="text" name="name" class="input" required>
+        <label for="nameInput">Nombre :</label>
+        <input type="text" id="nameInput" name="name" class="input" required>
 
-        <label>Descripción :</label>
-        <textarea name="description" class="input"></textarea>
+        <label for="descripInput" >Descripción :</label>
+        <textarea id="descripInput" name="description" class="input"></textarea>
 
         <button type="submit" class="btn btn-primary" style="margin-top:15px;">
             Crear
